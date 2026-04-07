@@ -37,7 +37,7 @@
         /* ===================================== */
         .navbar {
             background: transparent;
-            padding: 20px 15px;
+            padding: 15px 10px;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -50,18 +50,19 @@
 
         .nav-links {
             display: flex;
-            gap: 15px;
+            gap: 10px;
             flex-wrap: wrap;
             justify-content: center;
             margin-bottom: 10px;
+            width: 100%;
         }
 
         .nav-links a {
             color: #fff;
             text-decoration: none;
-            font-size: 1em;
+            font-size: 0.9em;
             text-transform: uppercase;
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 3px;
             transition: all 0.3s;
             letter-spacing: 1px;
@@ -75,9 +76,9 @@
         .search-box {
             background: rgba(255,255,255,0.1);
             border: 1px solid rgba(255,255,255,0.2);
-            padding: 8px 15px;
+            padding: 6px 12px;
             border-radius: 5px;
-            width: 200px;
+            width: 180px;
         }
 
         .search-box input {
@@ -86,7 +87,7 @@
             color: #fff;
             outline: none;
             width: 100%;
-            font-size: 0.9em;
+            font-size: 0.85em;
         }
 
         /* ===================================== */
@@ -96,14 +97,14 @@
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('Background laptop.jpg');
             background-size: cover;
             background-position: center;
-            min-height: 100vh; /* Penuh layar */
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
+            padding-top: 80px; /* Beri jarak agar tidak ketimpa menu */
         }
 
-        /* Efek Cahaya */
         .hero::before {
             content: '';
             position: absolute;
@@ -121,17 +122,17 @@
         }
 
         .hero-content img.logo-main {
-            height: 120px;
-            margin-bottom: 20px;
+            height: 90px;
+            margin-bottom: 15px;
             filter: drop-shadow(0 0 20px rgba(255,140,0,0.5));
         }
 
         .hero-content h1 {
             font-family: 'Raleway', sans-serif;
-            font-size: 3.5em;
+            font-size: 2.8em;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 8px;
+            letter-spacing: 5px;
             text-shadow: 0 0 30px rgba(255,140,0,0.5);
             line-height: 1.2;
         }
@@ -141,17 +142,17 @@
         }
 
         /* ===================================== */
-        /* STYLE KONTEN DINAMIS (HILANG TIMBUL) */
+        /* STYLE KONTEN DINAMIS */
         /* ===================================== */
         .content-section {
-            display: none; /* Awalnya tersembunyi */
-            padding: 50px 20px;
+            display: none;
+            padding: 80px 15px 30px; /* Padding atas besar agar aman dari menu */
             background: var(--dark);
             min-height: 100vh;
         }
 
         .content-section.active {
-            display: block; /* Muncul saat aktif */
+            display: block;
             animation: fadeIn 0.5s ease-in;
         }
 
@@ -181,15 +182,15 @@
         /* --- STYLE LAYANAN --- */
         .services-container {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
-            max-width: 800px;
+            grid-template-columns: 1fr; /* 1 kolom penuh agar leluasa */
+            gap: 25px;
+            max-width: 600px;
             margin: 0 auto;
         }
 
         .service-box {
             background: rgba(255,255,255,0.05);
-            padding: 20px;
+            padding: 25px 20px;
             border-radius: 10px;
             border: 1px solid #333;
         }
@@ -197,19 +198,23 @@
         .service-box h3 {
             color: var(--orange);
             margin-bottom: 15px;
-            font-size: 1.2em;
+            font-size: 1.4em;
+            text-align: center;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            padding-bottom: 10px;
         }
 
         .service-box p {
-            color: #ccc;
-            font-size: 0.9em;
-            margin: 8px 0;
+            color: #f0f0f0;
+            font-size: 1em;
+            margin: 12px 0;
+            line-height: 1.8;
         }
 
         /* --- STYLE PORTOFOLIO --- */
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
             gap: 15px;
             max-width: 900px;
             margin: 0 auto;
@@ -239,14 +244,14 @@
             max-width: 500px;
             margin: 0 auto;
             background: rgba(255,255,255,0.05);
-            padding: 30px;
+            padding: 30px 20px;
             border-radius: 10px;
             border: 1px solid #333;
         }
 
         .contact-info p {
             font-size: 1.1em;
-            margin: 10px 0;
+            margin: 15px 0;
             color: #ddd;
         }
 
@@ -254,12 +259,12 @@
             display: inline-block;
             background: linear-gradient(45deg, #25D366, #128C7E);
             color: white !important;
-            padding: 12px 30px;
+            padding: 12px 25px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: bold;
-            margin-top: 20px;
-            font-size: 1.1em;
+            margin: 10px 5px;
+            font-size: 1em;
         }
 
         /* ===================================== */
@@ -267,14 +272,14 @@
         /* ===================================== */
         @media (max-width: 600px) {
             .hero-content h1 {
-                font-size: 2.5em;
-                letter-spacing: 5px;
-            }
-            .services-container {
-                grid-template-columns: 1fr;
+                font-size: 2.2em;
+                letter-spacing: 3px;
             }
             .navbar {
                 padding-top: 10px;
+            }
+            .content-section {
+                padding-top: 90px; /* Jarak ekstra di HP */
             }
         }
     </style>
@@ -307,7 +312,7 @@
     </div>
 
     <!-- ===================================== -->
-    <!-- BAGIAN LAYANAN (AWALNYA HILANG) -->
+    <!-- BAGIAN LAYANAN -->
     <!-- ===================================== -->
     <div id="services-section" class="content-section">
         <div class="section-title">
@@ -316,8 +321,9 @@
         <div class="services-container">
             <div class="service-box">
                 <h3>PENGETIKAN & DESAIN</h3>
-                <p style="font-size: 1.1em; color: #fff;">Kami siap membantu!</p>
+                <p style="text-align: center; font-size: 1.2em;">Kami siap membantu!</p>
             </div>
+
             <div class="service-box">
                 <h3>MENERIMA JASA :</h3>
                 <p>✅ PENGETIKAN LAPORAN, MAKALAH, DSB NYA;</p>
@@ -325,6 +331,7 @@
                 <p>✅ DESAIN DAN CETAK MAJALAH</p>
                 <p>✅ DESAIN DAN CETAK BAHAN-BAHAN PAMERAN (BALIHO, SPANDUK, BANNER, DLL.)</p>
             </div>
+
             <div class="service-box">
                 <h3>KEUNGGULAN KAMI</h3>
                 <p>✅ CEPAT SELESAI</p>
@@ -332,13 +339,13 @@
                 <p>✅ HARGA BERSAHABAT</p>
                 <p>✅ BERKUALITAS</p>
                 <p>✅ PEMBAYARAN MUDAH</p>
-                <p style="margin-top: 15px; font-style: italic;">(Siap Antar Hasil)</p>
+                <p style="margin-top: 15px; font-style: italic; text-align: center;">(Siap Antar Hasil)</p>
             </div>
         </div>
     </div>
 
     <!-- ===================================== -->
-    <!-- BAGIAN PORTOFOLIO (AWALNYA HILANG) -->
+    <!-- BAGIAN PORTOFOLIO -->
     <!-- ===================================== -->
     <div id="portfolio-section" class="content-section">
         <div class="section-title">
@@ -355,7 +362,7 @@
     </div>
 
     <!-- ===================================== -->
-    <!-- BAGIAN KONTAK (AWALNYA HILANG) -->
+    <!-- BAGIAN KONTAK -->
     <!-- ===================================== -->
     <div id="contact-section" class="content-section">
         <div class="section-title">
@@ -367,35 +374,30 @@
             <p>📞 0822 5329 5313</p>
             
             <a href="https://wa.me/6282187662626" class="wa-button">CHAT VIA WHATSAPP 1</a>
-            <a href="https://wa.me/6282253295313" class="wa-button" style="margin-left: 10px; background: linear-gradient(45deg, #34D36F, #1E9E5A);">CHAT VIA WHATSAPP 2</a>
+            <a href="https://wa.me/6282253295313" class="wa-button">CHAT VIA WHATSAPP 2</a>
         </div>
     </div>
 
     <!-- ===================================== -->
-    <!-- SCRIPT UNTUK MENGHIDUPKAN MENU -->
+    <!-- SCRIPT -->
     <!-- ===================================== -->
     <script>
         function showSection(section) {
-            // Sembunyikan semua konten
             document.querySelectorAll('.content-section').forEach(el => {
                 el.classList.remove('active');
             });
 
-            // Sembunyikan background utama jika bukan home
             if(section !== 'home') {
                 document.getElementById('home-section').style.display = 'none';
             } else {
                 document.getElementById('home-section').style.display = 'flex';
             }
 
-            // Tampilkan konten yang dipilih
             if(section !== 'home') {
                 document.getElementById(section + '-section').classList.add('active');
-                // Scroll ke atas
                 window.scrollTo({top: 0, behavior: 'smooth'});
             }
 
-            // Ubah warna menu aktif
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
                 if(link.textContent.toLowerCase().includes(section)) {
