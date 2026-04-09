@@ -15,6 +15,7 @@
             --bg-card: #1e1e1e;
             --text-light: #f5f5f5;
             --text-muted: #bbbbbb;
+            --accent-light: #fff3e0;
         }
         * {
             margin: 0;
@@ -33,12 +34,13 @@
             padding: 20px;
         }
         header {
-            background: rgba(0,0,0,0.85);
+            background: rgba(0,0,0,0.9);
             padding: 15px 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+            border-bottom: 1px solid rgba(255, 149, 0, 0.1);
         }
         .navbar {
             display: flex;
@@ -50,6 +52,7 @@
             font-weight: 800;
             color: var(--primary-color);
             letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(255, 149, 0, 0.3);
         }
         .nav-links {
             display: flex;
@@ -63,7 +66,22 @@
             text-decoration: none;
             font-size: 18px;
             font-weight: 500;
-            transition: color 0.3s ease;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-color);
+            transition: width 0.3s ease;
+        }
+        .nav-links a:hover::after,
+        .nav-links a.active::after {
+            width: 100%;
         }
         .nav-links a:hover,
         .nav-links a.active {
@@ -71,7 +89,7 @@
         }
         .hero {
             background: url('https://images.unsplash.com/photo-1593642634367-d91a135587b5?q=80&w=2070&auto=format&fit=crop') no-repeat center center/cover;
-            min-height: 80vh;
+            min-height: 70vh;
             position: relative;
             display: flex;
             align-items: center;
@@ -84,7 +102,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0,0,0,0.75);
+            background: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(18,18,18,0.95));
         }
         .hero-content {
             position: relative;
@@ -93,19 +111,20 @@
             padding: 20px;
         }
         .hero h1 {
-            font-size: 60px;
+            font-size: clamp(40px, 8vw, 70px);
             font-weight: 800;
             margin-bottom: 20px;
             color: var(--primary-color);
-            text-shadow: 0 0 20px rgba(255, 149, 0, 0.5);
-            letter-spacing: 2px;
+            text-shadow: 0 0 25px rgba(255, 149, 0, 0.4);
+            letter-spacing: 3px;
         }
         .hero p {
-            font-size: 22px;
+            font-size: clamp(16px, 3vw, 22px);
             max-width: 800px;
             margin: 0 auto 30px;
-            color: var(--text-muted);
+            color: var(--accent-light);
             font-weight: 300;
+            line-height: 1.7;
         }
         .service-box {
             background: var(--bg-card);
@@ -113,7 +132,7 @@
             padding: 35px;
             margin-bottom: 30px;
             border: 1px solid rgba(255,149,0,0.1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
         .service-box:hover {
@@ -122,7 +141,7 @@
         }
         .service-box h3 {
             color: var(--primary-color);
-            font-size: 32px;
+            font-size: clamp(24px, 5vw, 32px);
             font-weight: 700;
             margin-bottom: 20px;
             text-align: center;
@@ -130,26 +149,29 @@
         }
         .service-box h4 {
             color: var(--primary-color);
-            font-size: 24px;
+            font-size: clamp(18px, 4vw, 24px);
             font-weight: 600;
             margin: 30px 0 20px;
             padding-bottom: 12px;
-            border-bottom: 1px solid rgba(255,149,0,0.3);
+            border-bottom: 1px solid rgba(255,149,0,0.2);
             text-transform: uppercase;
             letter-spacing: 0.5px;
         }
         .service-box p {
-            font-size: 17px;
+            font-size: clamp(15px, 3vw, 17px);
             color: var(--text-muted);
             margin-bottom: 15px;
-            text-align: justify;
+            text-align: center;
+            line-height: 1.8;
         }
         .service-box ul {
             list-style: none;
             padding-left: 10px;
+            max-width: 700px;
+            margin: 0 auto;
         }
         .service-box ul li {
-            font-size: 18px;
+            font-size: clamp(15px, 3vw, 18px);
             margin-bottom: 15px;
             padding-left: 35px;
             position: relative;
@@ -171,28 +193,35 @@
             margin: 30px 0;
         }
         .feature-tag {
-            background: rgba(255,149,0,0.15);
+            background: rgba(255,149,0,0.1);
             color: var(--primary-color);
-            padding: 12px 25px;
+            padding: 10px 22px;
             border-radius: 50px;
-            font-weight: 600;
-            font-size: 16px;
+            font-weight: 500;
+            font-size: clamp(14px, 3vw, 16px);
             border: 1px solid rgba(255,149,0,0.2);
+            transition: all 0.3s ease;
+        }
+        .feature-tag:hover {
+            background: rgba(255,149,0,0.2);
+            transform: scale(1.05);
         }
         .btn {
             display: inline-block;
-            padding: 16px 45px;
+            padding: 14px 40px;
             background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
             color: white;
             text-decoration: none;
             border-radius: 50px;
             margin-top: 40px;
-            font-size: 18px;
+            font-size: clamp(16px, 3vw, 18px);
             font-weight: 600;
             transition: all 0.3s ease;
             box-shadow: 0 5px 15px rgba(255, 149, 0, 0.3);
             text-transform: uppercase;
             letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
         }
         .btn:hover {
             transform: scale(1.05);
@@ -203,7 +232,7 @@
             padding: 40px 20px;
             margin-top: 50px;
             border-top: 1px solid rgba(255,255,255,0.1);
-            font-size: 16px;
+            font-size: clamp(14px, 3vw, 16px);
             color: var(--text-muted);
         }
         /* STYLE KHUSUS JUDUL PAMERAN */
@@ -211,11 +240,11 @@
             text-align: center;
             margin-bottom: 30px;
             padding-bottom: 25px;
-            border-bottom: 1px solid rgba(255,149,0,0.3);
+            border-bottom: 1px solid rgba(255,149,0,0.2);
         }
         .pameran-title .baris-utama {
             display: block;
-            font-size: 42px;
+            font-size: clamp(28px, 6vw, 42px);
             font-weight: 800;
             color: var(--primary-color);
             margin: 12px 0;
@@ -224,20 +253,19 @@
         }
         .pameran-title .baris-kedua {
             display: block;
-            font-size: 36px;
+            font-size: clamp(24px, 5vw, 36px);
             font-weight: 700;
             color: var(--primary-color);
             margin: 12px 0;
             letter-spacing: 1px;
         }
-        .pameran-title .sub-judul {
-            font-size: 26px;
-            margin-top: 25px;
-            color: var(--primary-color);
-            font-weight: 600;
+        ol {
+            max-width: 700px;
+            margin: 0 auto;
+            padding-left: 20px;
         }
         ol li {
-            font-size: 17px;
+            font-size: clamp(15px, 3vw, 17px);
             margin-bottom: 12px;
             color: var(--text-muted);
         }
@@ -269,9 +297,11 @@
     </section>
 
     <div class="container">
+
+        <!-- KOTAK 1: JASA TUGAS DIKLAT -->
         <section class="service-box">
             <h3>JASA TUGAS DIKLAT</h3>
-            <p style="text-align:center;">Sedang sibuk dengan pekerjaan dan kesulitan menyelesaikan tugas diklat? Tenang saja, kami hadir sebagai solusi terbaik untuk membantu Anda menyelesaikan <strong>tugas diklat PKN, PKA, dan PKP</strong> dengan hasil yang berkualitas, sesuai standar, dan tepat waktu.</p>
+            <p>Sedang sibuk dengan pekerjaan dan kesulitan menyelesaikan tugas diklat? Tenang saja, kami hadir sebagai solusi terbaik untuk membantu Anda menyelesaikan <strong>tugas diklat PKN, PKA, dan PKP</strong> dengan hasil yang berkualitas, sesuai standar, dan tepat waktu.</p>
 
             <div class="features">
                 <div class="feature-tag">✔️ Tim Berpengalaman</div>
@@ -280,7 +310,10 @@
                 <div class="feature-tag">✔️ Revisi Gratis</div>
                 <div class="feature-tag">✔️ Privasi Terjaga</div>
             </div>
+        </section>
 
+        <!-- KOTAK 2: DIKLAT PKN TK. II -->
+        <section class="service-box">
             <h4>📚 DIKLAT PKN TK. II</h4>
             <ul>
                 <li>Essay Agenda I, Agenda II, Agenda III</li>
@@ -293,7 +326,10 @@
                 <li>Desain Baliho/ Spanduk/ X-Banner Pameran Proper</li>
                 <li>Video Presentasi</li>
             </ul>
-
+        </section>
+        
+        <!-- KOTAK 3: DIKLAT PKA -->
+        <section class="service-box">
             <h4>📚 DIKLAT PKA</h4>
             <ul>
                 <li>Essay Agenda I, Agenda II, Agenda III</li>
@@ -306,7 +342,10 @@
                 <li>Desain Baliho/ Spanduk/ X-Banner Pameran Akper</li>
                 <li>Video Presentasi</li>
             </ul>
+        </section>
 
+        <!-- KOTAK 4: DIKLAT PKP -->
+        <section class="service-box">
             <h4>📚 DIKLAT PKP</h4>
             <ul>
                 <li>Essay Agenda I, Agenda II, Agenda III</li>
@@ -320,7 +359,8 @@
                 <li>Video Presentasi</li>
             </ul>
         </section>
-        <!-- BAGIAN PAMERAN -->
+
+        <!-- KOTAK 5: PAMERAN -->
         <section class="service-box">
             <div class="pameran-title">
                 <span class="baris-utama">🎖️ MELAYANI KEBUTUHAN PAMERAN</span>
@@ -335,12 +375,12 @@
             </ul>
         </section>
 
-        <!-- BAGIAN KALIMAT PEMBUKA -->
+        <!-- KOTAK 6: KALIMAT PEMBUKA -->
         <section class="service-box">
             <p style="text-align:center; font-size:20px; font-weight:500; margin:0;">🤝 Kami siap membantu mewujudkan kebutuhan administrasi dan desain Anda!</p>
         </section>
 
-        <!-- BAGIAN KEUNGGULAN DAN CARA PESAN -->
+        <!-- KOTAK 7: KEUNGGULAN KAMI -->
         <section class="service-box">
             <h4>KEUNGGULAN KAMI</h4>
             <ul>
@@ -351,7 +391,10 @@
                 <li>Sistem Pembayaran Mudah dan Fleksibel</li>
                 <li>📦 Layanan Antar Hasil Tersedia</li>
             </ul>
+        </section>
 
+        <!-- KOTAK 8: CARA PEMESANAN -->
+        <section class="service-box">
             <h4>CARA PEMESANAN</h4>
             <ol style="max-width: 600px; margin: 0 auto; padding-left: 20px;">
                 <li><strong>Hubungi Kami:</strong> Sampaikan jenis tugas, topik, dan tenggat waktu.</li>
@@ -371,3 +414,4 @@
     </footer>
 </body>
 </html>
+    
