@@ -60,15 +60,15 @@
 
     <!-- Header / Navigasi -->
     <header class="bg-secondary text-white py-4 px-6 shadow-md sticky top-0 z-50">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+        <div class="container mx-auto flex justify-between items-center gap-4">
+            <!-- Logo di Samping Kiri -->
             <div class="flex items-center gap-3">
-                <!-- Logo dengan nama file sesuai di GitHub -->
                 <img src="AW SOLUTIONS Logo.jpg" alt="Logo AW Solutions" class="w-10 h-10 rounded-full object-cover">
                 <span class="text-primary text-3xl font-black">AW</span>
                 <span class="text-white text-xl font-bold">Solutions</span>
             </div>
             
-            <!-- Menu Navigasi -->
+            <!-- Menu Navigasi di Samping Kanan -->
             <nav class="flex flex-wrap justify-center gap-4 md:gap-6 text-sm md:text-base font-bold">
                 <a href="#" class="menu-link active py-2 px-1" onclick="changePage('beranda')">Beranda</a>
                 <a href="#" class="menu-link py-2 px-1" onclick="changePage('profil')">Profil</a>
@@ -80,28 +80,25 @@
     </header>
 
     <main class="container mx-auto">
-        <!-- Halaman Beranda (Tampil Pertama Kali) -->
+        <!-- Halaman Beranda (Bagian yang Diubah) -->
         <section id="beranda" class="page-content active">
             <!-- Bagian Gambar Utama / Hero -->
             <div class="relative bg-secondary text-white overflow-hidden h-[500px]">
                 <div class="absolute inset-0 z-0">
-                    <!-- Background Laptop dari Folder GitHub -->
                     <img src="Laptop 01.jpg" 
                          alt="Background Laptop" 
                          class="w-full h-full object-cover opacity-50">
                 </div>
                 <div class="relative z-10 p-12 md:p-16 text-shadow h-full flex flex-col justify-center">
-                    <!-- Teks Beranda SESUAI CONTOH GAMBAR -->
                     <h1 class="text-[clamp(2.5rem,8vw,4rem)] font-black mb-4 text-white leading-tight">
                         AW SOLUTIONS<br>
-                        Jasa Tugas PKN PKA PKP |
+                        Jasa Tugas PKN PKA PKP
                     </h1>
                     <p class="text-[clamp(1rem,3vw,1.5rem)] mb-8 max-w-2xl text-white font-bold leading-relaxed">
                         Pengetikan Desain & Cetak Solusi<br>
                         terpercaya dokumen berkualitas tinggi
                     </p>
                     <div class="flex flex-wrap gap-4">
-                        <!-- Ubah Tombol Menjadi Profil Kami -->
                         <a href="#" onclick="changePage('profil')" class="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 shadow-lg text-lg">
                             Profil Kami
                         </a>
@@ -112,13 +109,12 @@
                 </div>
             </div>
 
-            <!-- Bagian Portofolio / Layanan Singkat (Disesuaikan) -->
+            <!-- Bagian Layanan Unggulan dengan Ikon yang Bisa Diklik -->
             <div class="bg-white py-12 px-6">
                 <div class="max-w-6xl mx-auto">
-                    <!-- Judul diganti menjadi Portofolio -->
-                    <h2 class="text-3xl font-black mb-8 text-gray-800 text-center">Portofolio</h2>
+                    <h2 class="text-3xl font-black mb-8 text-gray-800 text-center">Layanan Unggulan</h2>
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-                        <!-- Kotak menjadi Tautan yang mengarah ke Layanan -->
+                        <!-- Ikon Tugas PKN (Bisa Diklik Langsung ke Bagian Layanan PKN) -->
                         <a href="#" onclick="changePage('layanan'); setTimeout(() => document.getElementById('layanan-pkn').scrollIntoView({behavior: 'smooth'}), 100);" class="service-link">
                             <div class="bg-light p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border text-center cursor-pointer">
                                 <i class="fa fa-file-text-o text-4xl text-gray-700 mb-4"></i>
@@ -126,6 +122,7 @@
                             </div>
                         </a>
                         
+                        <!-- Ikon Tugas PKA (Bisa Diklik Langsung ke Bagian Layanan PKA) -->
                         <a href="#" onclick="changePage('layanan'); setTimeout(() => document.getElementById('layanan-pka').scrollIntoView({behavior: 'smooth'}), 100);" class="service-link">
                             <div class="bg-light p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border text-center cursor-pointer">
                                 <i class="fa fa-file-text-o text-4xl text-gray-700 mb-4"></i>
@@ -133,6 +130,7 @@
                             </div>
                         </a>
                         
+                        <!-- Ikon Tugas PKP (Bisa Diklik Langsung ke Bagian Layanan PKP) -->
                         <a href="#" onclick="changePage('layanan'); setTimeout(() => document.getElementById('layanan-pkp').scrollIntoView({behavior: 'smooth'}), 100);" class="service-link">
                             <div class="bg-light p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border text-center cursor-pointer">
                                 <i class="fa fa-file-image-o text-4xl text-gray-700 mb-4"></i>
@@ -140,6 +138,7 @@
                             </div>
                         </a>
                         
+                        <!-- Ikon Desain & Cetak (Bisa Diklik Langsung ke Bagian Layanan Desain & Cetak) -->
                         <a href="#" onclick="changePage('layanan'); setTimeout(() => document.getElementById('layanan-cetak').scrollIntoView({behavior: 'smooth'}), 100);" class="service-link">
                             <div class="bg-light p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border text-center cursor-pointer">
                                 <i class="fa fa-print text-4xl text-gray-700 mb-4"></i>
@@ -150,7 +149,6 @@
                 </div>
             </div>
         </section>
-
         <!-- Halaman Profil -->
         <section id="profil" class="page-content py-12 px-6">
             <div class="max-w-4xl mx-auto bg-white p-8 rounded-lg shadow-md">
@@ -211,8 +209,8 @@
                         <h3 class="font-bold text-gray-800 text-center mb-4 text-lg">Tugas PKP</h3>
                         <ul class="text-sm text-gray-600 space-y-2 text-left font-bold">
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Essay Agenda I, Agenda II, Agenda III</li>
-                            <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Tugas Individu Agenda I, Agenda II, Agenda III</li
-                                <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Tugas Individu Studi Lapangan (Stula)</li>
+                            <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Tugas Individu Agenda I, Agenda II, Agenda III</li>
+                            <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Tugas Individu Studi Lapangan (Stula)</li>
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Rancangan Aksi Perubahan</li>
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Laporan Implementasi Aksi Perubahan</li>
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Desain Infografis dan Majalah Aksi Perubahan</li>
@@ -220,9 +218,8 @@
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Desain Baliho/ Spanduk/ X-Banner Pameran Akper</li>
                             <li><i class="fa fa-check-circle text-green-500 mr-2"></i>Video Presentasi</li>
                         </ul>
-                    </div>
-                    
-                    <!-- Tambahkan ID agar bisa dituju dari klik di beranda -->
+
+                        <!-- Tambahkan ID agar bisa dituju dari klik di beranda -->
                     <div id="layanan-cetak" class="bg-light p-6 rounded-lg hover:shadow-lg transition-shadow duration-300 border">
                         <i class="fa fa-print text-3xl text-gray-700 mb-3 block text-center"></i>
                         <h3 class="font-bold text-gray-800 text-center mb-4 text-lg">Desain & Cetak</h3>
@@ -374,4 +371,4 @@
     </script>
 
 </body>
-</html>                                                                                                                                    
+</html>
