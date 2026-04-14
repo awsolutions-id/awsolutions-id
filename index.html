@@ -98,23 +98,25 @@
 
     <main class="container mx-auto">
         
-    <!-- HALAMAN BERANDA - LOGO DIPERKECIL LAGI -->
+    <!-- HALAMAN BERANDA - PERBAIKAN AKHIR -->
 <section id="beranda" class="page-content active">
     <div class="relative bg-secondary text-white">
         <div class="absolute inset-0 z-0">
             <img 
                 src="Laptop 01.jpg" 
                 alt="Background Layanan Jasa Tugas Diklat PKN, PKA, PKP" 
-                class="w-full h-full object-cover object-center opacity-50"
+                class="w-full h-[88vh] object-cover object-top opacity-50"
             >
+            <!-- Membuat latar belakang bawah menjadi warna gelap polos untuk memotong gambar -->
+            <div class="absolute bottom-0 left-0 right-0 h-[12vh] bg-secondary"></div>
         </div>
-        <div class="relative z-10 p-3 md:p-4 text-shadow min-h-screen h-full flex flex-col justify-start items-center text-center pt-12">
-            <!-- Logo & Brand DIPERKECIL LAGI -->
+        <div class="relative z-10 p-3 md:p-4 text-shadow min-h-screen h-full flex flex-col justify-center items-center text-center">
+            <!-- Logo & Brand: Logo diperbesar, Teks diperkecil -->
             <div class="flex flex-col items-center mb-3">
-                <img src="AW SOLUTIONS Logo.jpg" alt="Logo AW Solutions - Jasa Tugas Diklat" class="w-8 h-8 rounded-full object-cover mb-1 bg-white/80 p-0.5">
+                <img src="AW SOLUTIONS Logo.jpg" alt="Logo AW Solutions - Jasa Tugas Diklat" class="w-10 h-10 rounded-full object-cover mb-1 bg-white/80 p-0.5">
                 <div class="flex items-center gap-1">
-                    <span class="text-primary text-[clamp(1.2rem,5vw,1.6rem)] font-black">AW</span>
-                    <span class="text-white text-[clamp(1.2rem,5vw,1.6rem)] font-bold">Solutions</span>
+                    <span class="text-primary text-[1.1rem] font-black">AW</span>
+                    <span class="text-white text-[1.1rem] font-bold">Solutions</span>
                 </div>
             </div>
             
@@ -122,18 +124,28 @@
                 Jasa Tugas Diklat
             </h1>
             
+            <!-- Format Teks Baru: Baris baru sejajar di bawah -->
             <ul class="space-y-3 mb-8 text-left w-11/12 max-w-md mx-auto">
-                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex items-start gap-2">
-                    <span class="text-white font-bold">•</span>
-                    <span><span class="text-primary font-semibold">PKN</span> | Pelatihan Kepemimpinan Nasional Tk. II dan Tk. I</span>
+                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-white font-bold">•</span>
+                        <span class="text-primary font-semibold">PKN</span>
+                    </div>
+                    <span class="pl-6">Pelatihan Kepemimpinan Nasional Tk. II dan Tk. I</span>
                 </li>
-                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex items-start gap-2">
-                    <span class="text-white font-bold">•</span>
-                    <span><span class="text-primary font-semibold">PKA</span> | Pelatihan Kepemimpinan Administrator</span>
+                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-white font-bold">•</span>
+                        <span class="text-primary font-semibold">PKA</span>
+                    </div>
+                    <span class="pl-6">Pelatihan Kepemimpinan Administrator</span>
                 </li>
-                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex items-start gap-2">
-                    <span class="text-white font-bold">•</span>
-                    <span><span class="text-primary font-semibold">PKP</span> | Pelatihan Kepemimpinan Pengawas</span>
+                <li class="text-[clamp(1.1rem,5vw,1.5rem)] text-white flex flex-col gap-1">
+                    <div class="flex items-center gap-2">
+                        <span class="text-white font-bold">•</span>
+                        <span class="text-primary font-semibold">PKP</span>
+                    </div>
+                    <span class="pl-6">Pelatihan Kepemimpinan Pengawas</span>
                 </li>
             </ul>
 
@@ -142,10 +154,11 @@
             <p class="text-[clamp(1.3rem,5vw,1.8rem)] mb-2 max-w-3xl text-white font-bold leading-relaxed">
                 Pengetikan, Desain & Cetak
             </p>
-            <p class="text-[clamp(0.9rem,4vw,1.1rem)] mb-10 max-w-2xl text-white font-normal leading-relaxed lowercase">
+            <p class="text-[clamp(0.9rem,4vw,1.1rem)] mb-8 max-w-2xl text-white font-normal leading-relaxed lowercase">
                 solusi terpercaya dokumen berkualitas tinggi
             </p>
             
+            <!-- Tombol -->
             <div class="flex flex-row gap-2 justify-center w-full max-w-md">
                 <a href="#" onclick="changePage('layanan')" class="bg-primary hover:bg-primary/90 text-white font-bold py-2 px-4 rounded-full transition-all duration-300 shadow-lg text-base flex-1 text-center">
                     Layanan Kami
@@ -157,7 +170,7 @@
         </div>
     </div>
 </section>
-        
+
     <!-- HALAMAN PROFIL -->
         <section id="profil" class="page-content py-6 px-3">
             <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md">
