@@ -11,7 +11,6 @@
     <meta name="author" content="AW Solutions">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://ons-id.github.io/jasa-tugas-diklat-pkn-pka-pkp/">
-    <!-- Tag Open Graph untuk tampilan media sosial -->
     <meta property="og:title" content="AW Solutions - Jasa Tugas Diklat PKN, PKA, PKP">
     <meta property="og:description" content="Penyedia Jasa Tugas Diklat PKN, PKA, PKP terpercaya untuk kebutuhan tugas diklat dan desain percetakan di Makassar.">
     <meta property="og:image" content="https://ons-id.github.io/jasa-tugas-diklat-pkn-pka-pkp/AW SOLUTIONS Logo.jpg">
@@ -56,9 +55,10 @@
           width: 100%;
           height: 100%;
           overflow-x: hidden;
+          font-family: 'Arial', 'Helvetica', sans-serif;
       }
       
-      /* Rasio layar HP standar 6:9 (portrait) */
+      /* Rasio layar HP standar 6:9 (potret) */
       .screen-ratio {
           aspect-ratio: 6/9;
           max-height: 100vh;
@@ -67,63 +67,61 @@
           position: relative;
       }
       
-      .content-auto {content-visibility:auto;}
-      .text-shadow {text-shadow:2px 2px 4px rgba(0,0,0,0.5);}
-      
       /* HANYA tampilkan halaman yang aktif */
-      .page-content {display:none; height: 100%;}
+      .page-content {display:none; min-height: 100%;}
       .page-content.active {display:block;}
       
       /* Gaya menu: Garis bawah putih & Latar Belakang Biru */
       .menu-container {background-color: rgba(10, 36, 99, 0.6); padding: 8px 0; width: 100%;}
+      .menu-link {font-size: 18px; color: #f3d278; text-decoration: none; padding-bottom: 4px;}
       .menu-link.active {border-bottom:3px solid #ffffff; font-weight:bold;}
-      .menu-link {font-size: 18px;}
       
-      .service-link {text-decoration:none; color:inherit; display:block;}
       .list-item-custom {display:flex; align-items:flex-start;}
       .list-item-custom i {margin-top:0.25rem; flex-shrink:0;}
       .list-item-custom span {display:block;}
       
-      /* Kontainer utama dengan rasio tetap */
+      /* Kontainer utama */
       .hero-container {
-          height: 100%;
+          min-height: 100vh;
           width: 100%;
-          overflow: hidden;
+          position: relative;
       }
       
-      /* Footer dihapus seluruhnya sesuai permintaan */
+      /* Footer dihapus */
       footer {
           display: none !important;
       }
       
-      /* Penyesuaian teks agar muat */
+      /* Penyesuaian ukuran teks agar proporsional */
       h1 { font-size: clamp(1.8rem, 8vw, 2.5rem) !important; }
       h2 { font-size: clamp(1.2rem, 5vw, 1.5rem) !important; }
       .text-lg { font-size: clamp(1rem, 4vw, 1.2rem) !important; }
       .text-base { font-size: clamp(0.9rem, 3.5vw, 1rem) !important; }
       .text-sm { font-size: clamp(0.8rem, 3vw, 0.9rem) !important; }
       
-      /* Tombol agar pas */
+      /* Tombol */
       .btn-custom {
           padding: 10px 8px !important;
           font-size: clamp(0.9rem, 4vw, 1.1rem) !important;
       }
+      
+      /* Mengurangi jarak antar elemen */
+      .space-custom {
+          gap: 0.75rem;
+          margin-top: 0.75rem;
+      }
     </style>
-    
-    <!-- Font Eksternal -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700;900&display=swap" rel="stylesheet">
 </head>
-<body class="bg-gray-100 font-sans">
+<body class="bg-gray-100">
 
-    <main class="w-full h-screen">
+    <main class="w-full min-h-screen">
         <div class="screen-ratio mx-auto">
+        
         <!-- ==================================================
-        HALAMAN BERANDA - DIPERBAIKI & RASIO 6:9
+        HALAMAN BERANDA - DIPERBAIKI 100%
         =================================================== -->
 <section id="beranda" class="page-content active">
-    <div class="relative hero-container w-full overflow-hidden" style="font-family: 'Arial', 'Helvetica', 'sans-serif;">
+    <div class="relative hero-container w-full overflow-hidden">
         
         <!-- Latar Belakang -->
         <div class="absolute inset-0 z-0">
@@ -133,17 +131,17 @@
                 class="w-full h-full object-cover object-center"
                 loading="lazy"
             >
-            <!-- Lapisan Gradasi Biru (Terang ke Gelap) -->
+            <!-- Lapisan Gradasi Biru -->
             <div class="absolute inset-0 bg-gradient-to-b from-white/10 via-transparent to-[#051a44]/95 z-10"></div>
         </div>
 
-        <div class="relative z-20 w-full h-full flex flex-col justify-between p-0 pb-6">
+        <div class="relative z-20 w-full min-h-screen flex flex-col justify-between p-0 pb-6">
             
             <!-- MENU NAVIGASI: Latar Biru & Garis Bawah Putih -->
-            <div class="flex justify-around text-xl font-bold text-gold menu-container">
-                <a href="#" class="menu-link border-b-2 border-white pb-2 px-1" onclick="changePage('beranda', event)">Beranda</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('profil', event)">Profil</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('portofolio', event)">Portofolio</a>
+            <div class="flex justify-around font-bold menu-container">
+                <a href="#" class="menu-link active" onclick="changePage('beranda', event)">Beranda</a>
+                <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
+                <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
             </div>
 
 
@@ -162,8 +160,8 @@
                     Jasa Tugas Diklat
                 </h1>
 
-                <!-- Daftar Layanan: POSISI DISESUAIKAN (Teks Rata Kanan) -->
-                <div class="text-left w-full max-w-xs mt-3 space-y-4">
+                <!-- Daftar Layanan: Format Sesuai & Jarak Rapat -->
+                <div class="text-left w-full max-w-xs mt-3 space-custom flex flex-col">
                     <!-- PKN -->
                     <div class="flex items-start gap-3">
                         <span class="text-gold font-bold text-lg mt-1">•</span>
@@ -177,9 +175,8 @@
                                     <path d="M12 12v9" />
                                     <path d="M12 12l-8 -4.5" />
                                 </svg>
-                                <div class="text-right">
-                                    <p class="text-white text-sm font-semibold">Pelatihan Kepemimpinan Nasional</p>
-                                    <p class="text-white text-xs font-normal">Tk. II dan Tk. I</p>
+                                <div>
+                                    <p class="text-white text-sm font-semibold">Pelatihan Kepemimpinan Nasional, Tk. II dan Tk. I</p>
                                 </div>
                             </div>
                         </div>
@@ -237,7 +234,6 @@
                         Hubungi Kami
                     </a>
                 </div>
-                
             </div>
 
         </div>
@@ -245,13 +241,13 @@
 </section>
     <!-- Halaman Profil -->
         <section id="profil" class="page-content">
-            <div class="relative hero-container w-full overflow-hidden" style="font-family: 'Arial', 'Helvetica', 'sans-serif;">
+            <div class="relative hero-container w-full overflow-hidden">
             
             <!-- Menu Navigasi untuk Halaman Dalam -->
-            <div class="flex justify-around text-xl font-bold text-gold menu-container">
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('beranda', event)">Beranda</a>
-                <a href="#" class="menu-link border-b-2 border-white pb-2 px-1" onclick="changePage('profil', event)">Profil</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('portofolio', event)">Portofolio</a>
+            <div class="flex justify-around font-bold menu-container">
+                <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
+                <a href="#" class="menu-link active" onclick="changePage('profil', event)">Profil</a>
+                <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
             </div>
             
             <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md m-4">
@@ -260,8 +256,7 @@
                     Kami adalah penyedia jasa profesional yang berfokus pada penyusunan dokumen, pengetikan, desain, dan percetakan. Berpengalaman dalam menangani kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, maupun PKP</strong> dengan kualitas terbaik dan ketepatan waktu.
                 </p>
                 <p class="text-gray-700 leading-relaxed mb-2 font-bold">
-                    Dengan tim yang terampil dan peralatan yang memadai, kami berkomitmen untuk memberikan hasil kerja yang rapi, sesuai aturan, dan memuaskan klien. Kami memahami pentingnya <strong>Jasa Tugas Diklat PKN, PKA
-                        , dan PKP</strong> bagi pengembangan karir Anda, sehingga kami selalu berusaha memberikan yang terbaik.
+                    Dengan tim yang terampil dan peralatan yang memadai, kami berkomitmen untuk memberikan hasil kerja yang rapi, sesuai aturan, dan memuaskan klien. Kami memahami pentingnya <strong>Jasa Tugas Diklat PKN, PKA, dan PKP</strong> bagi pengembangan karir Anda, sehingga kami selalu berusaha memberikan yang terbaik.
                 </p>
                 <p class="text-gray-700 leading-relaxed font-bold">
                     Berlokasi di Makassar, Sulawesi Selatan, kami siap melayani kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong> Anda baik secara langsung maupun daring.
@@ -272,13 +267,13 @@
 
         <!-- Halaman Layanan -->
         <section id="layanan" class="page-content">
-            <div class="relative hero-container w-full overflow-hidden" style="font-family: 'Arial', 'Helvetica', 'sans-serif;">
+            <div class="relative hero-container w-full overflow-hidden">
             
             <!-- Menu Navigasi untuk Halaman Dalam -->
-            <div class="flex justify-around text-xl font-bold text-gold menu-container">
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('beranda', event)">Beranda</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('profil', event)">Profil</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('portofolio', event)">Portofolio</a>
+            <div class="flex justifyaround font-bold menu-container">
+                <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
+                <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
+                <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
             </div>
             
             <div class="max-w-6xl mx-auto p-4">
@@ -431,7 +426,7 @@
                             </li>
                             <li class="list-item-custom">
                                 <i class="fa fa-check-circle text-green-500 mr-2"></i>
-                                <span>Baliho/Backdrop untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span>
+                                <span>Baliho/Latar Belakang untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span>
                             </li>
                             <li class="list-item-custom">
                                 <i class="fa fa-check-circle text-green-500 mr-2"></i>
@@ -446,16 +441,16 @@
                 </div>
             </div>
         </div>
-    </section>
-            <!-- Halaman Portofolio -->
+        </section>
+                    <!-- Halaman Portofolio -->
         <section id="portofolio" class="page-content">
-            <div class="relative hero-container w-full overflow-hidden" style="font-family: 'Arial', 'Helvetica', 'sans-serif;">
+            <div class="relative hero-container w-full overflow-hidden">
             
             <!-- Menu Navigasi untuk Halaman Dalam -->
-            <div class="flex justify-around text-xl font-bold text-gold menu-container">
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('beranda', event)">Beranda</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('profil', event)">Profil</a>
-                <a href="#" class="menu-link border-b-2 border-white pb-2 px-1" onclick="changePage('portofolio', event)">Portofolio</a>
+            <div class="flex justify-around font-bold menu-container">
+                <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
+                <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
+                <a href="#" class="menu-link active" onclick="changePage('portofolio', event)">Portofolio</a>
             </div>
             
             <div class="max-w-6xl mx-auto p-4">
@@ -487,7 +482,7 @@
                         <video src="Cetak Majalah 01.mp4" alt="Video Hasil Karya Jasa Tugas Diklat PKN, PKA, PKP" controls class="w-full h-full object-cover"></video>
                     </div>
                     <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow">
-                        <video src="Catak Majalah 02.mp4" alt="Video Hasil Karya Jasa Tugas Diklat PKN, PKA, PKP" controls class="w-full h-full object-cover"></video>
+                        <video src="Cetak Majalah 02.mp4" alt="Video Hasil Karya Jasa Tugas Diklat PKN, PKA, PKP" controls class="w-full h-full object-cover"></video>
                     </div>
                     <div class="aspect-square bg-gray-200 rounded-lg overflow-hidden shadow hover:shadow-lg transition-shadow">
                         <video src="Model Stand Pameran.mp4" alt="Video Hasil Karya Jasa Tugas Diklat PKN, PKA, PKP" controls class="w-full h-full object-cover"></video>
@@ -495,17 +490,16 @@
                 </div>
             </div>
         </div>
-        </section>
-                <!-- Halaman Kontak -->
+    </section>
+                    <!-- Halaman Kontak -->
         <section id="kontak" class="page-content">
-            <div class="relative hero-container w-full overflow-hidden" style="font-family: 'Arial', 'Helvetica', 'sans-serif;">
+            <div class="relative hero-container w-full overflow-hidden">
             
             <!-- Menu Navigasi untuk Halaman Dalam -->
-            <div class="flex justify
-                around text-xl font-bold text-gold menu-container">
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('beranda', event)">Beranda</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('profil', event)">Profil</a>
-                <a href="#" class="menu-link pb-2 px-1" onclick="changePage('portofolio', event)">Portofolio</a>
+            <div class="flex justify-around font-bold menu-container">
+                <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
+                <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
+                <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
             </div>
             
             <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md m-4">
@@ -513,7 +507,8 @@
                 <p class="text-center text-gray-700 mb-8 font-bold">Silakan hubungi kami untuk pemesanan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong> atau pertanyaan lainnya:</p>
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                        <h3 class="font-bold mb-3 text-gray-700">Informasi Kontak</h3>
+                        <h3 class="font-bold mb-3 text-gray
+                            -700">Informasi Kontak</h3>
                         <div class="space-y-2 font-bold">
                             <div class="flex items-center gap-3">
                                 <i class="fa fa-whatsapp text-lg text-green-500 w-5 text-center"></i>
@@ -578,16 +573,14 @@
             // Hapus tanda aktif di semua menu
             const semuaMenu = document.querySelectorAll('.menu-link');
             semuaMenu.forEach(menu => {
-                menu.classList.remove('border-white');
-                menu.classList.remove('border-b-2');
+                menu.classList.remove('active');
             });
             
             // Tampilkan halaman yang dipilih
             document.getElementById(pageName).classList.add('active');
             
             // Tandai menu yang sedang aktif
-            event.target.classList.add('border-b-2');
-            event.target.classList.add('border-white');
+            event.target.classList.add('active');
             
             // Gulir ke bagian paling atas halaman
             window.scrollTo(0, 0);
@@ -596,4 +589,5 @@
 
 </body>
 </html>
-    
+
+                                    
