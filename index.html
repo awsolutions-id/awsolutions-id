@@ -32,8 +32,8 @@
       * {box-sizing: border-box; margin: 0; padding: 0;}
       html, body {width: 100%; height: 100%; overflow-x: hidden; font-family: Arial, sans-serif;}
       .screen-ratio {max-height: 100vh; width: 100%; overflow: auto;}
-      .page-content {display:none; min-height: 100%;}
-      .page-content.active {display:block;}
+      .page-content {display: none; min-height: 100%;}
+      .page-content.active {display: block;}
       .menu-container {background: rgba(10, 36, 99, 0.6); padding: 8px 0; position: sticky; top:0; z-index:99;}
       .menu-link {font-size: 18px; color: #f3d278; text-decoration: none; padding-bottom: 4px;}
       .menu-link.active {border-bottom: 3px solid #fff; font-weight: bold;}
@@ -56,8 +56,10 @@
                 <a href="#" class="menu-link active" onclick="changePage('beranda', event)">Beranda</a>
                 <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
                 <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
+                <a href="#" class="menu-link" onclick="changePage('layanan', event)">Layanan</a>
+                <a href="#" class="menu-link" onclick="changePage('kontak', event)">Kontak</a>
             </div>
-                        <!-- Konten Utama Beranda -->
+            <!-- Konten Utama Beranda -->
             <div class="flex flex-col items-center text-center mt-6 mb-auto px-4">
                 <div class="w-20 h-20 relative flex items-center justify-center mb-3">
                     <svg width="100%" height="100%" viewBox="0 0 100 100">
@@ -127,8 +129,7 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Bagian Bawah Beranda -->
+                        <!-- Bagian Bawah Beranda -->
             <div class="text-center mb-6 px-4">
                 <hr class="border-gold/40 w-3/4 mx-auto mb-4">
                 <h2 class="font-bold text-gold text-xl">Pengetikan, Desain & Cetak</h2>
@@ -156,6 +157,8 @@
                 <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
                 <a href="#" class="menu-link active" onclick="changePage('profil', event)">Profil</a>
                 <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
+                <a href="#" class="menu-link" onclick="changePage('layanan', event)">Layanan</a>
+                <a href="#" class="menu-link" onclick="changePage('kontak', event)">Kontak</a>
             </div>
             
             <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md m-4">
@@ -179,6 +182,8 @@
                 <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
                 <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
                 <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
+                <a href="#" class="menu-link active" onclick="changePage('layanan', event)">Layanan</a>
+                <a href="#" class="menu-link" onclick="changePage('kontak', event)">Kontak</a>
             </div>
             
             <div class="max-w-6xl mx-auto p-4">
@@ -220,47 +225,16 @@
                 </div>
             </div>
         </div>
-     </section>
-                                <!-- Layanan PKP -->
-                    <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition-shadow border">
-                        <i class="fa fa-image text-2xl text-gray-700 mb-2 block text-center"></i>
-                        <h3 class="font-bold text-gray-800 text-center mb-3">Tugas Diklat PKP</h3>
-                        <ul class="text-gray-600 space-y-2 text-left font-bold pl-2">
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Essay Agenda I, Agenda II, Agenda III</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Tugas Individu Agenda I, Agenda II, Agenda III</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Tugas Individu Studi Lapangan</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Rancangan Aksi Perubahan</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Laporan Implementasi Aksi Perubahan</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Desain Infografis dan Majalah Aksi Perubahan</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Bahan Tayang Seminar Aksi Perubahan</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Desain Baliho/ Spanduk/ X-Banner Pameran</span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Video Presentasi</span></li>
-                        </ul>
-                    </div>
-
-                    <!-- Layanan Desain & Cetak -->
-                    <div class="bg-gray-100 p-4 rounded-lg hover:shadow-lg transition-shadow border">
-                        <i class="fa fa-print text-2xl text-gray-700 mb-2 block text-center"></i>
-                        <h3 class="font-bold text-gray-800 text-center mb-3">Desain & Cetak Pendukung</h3>
-                        <ul class="text-gray-600 space-y-2 text-left font-bold pl-2">
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Majalah untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Infografis untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Baliho/Latar Belakang untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>Spanduk untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span></li>
-                            <li class="flex items-start gap-2"><i class="fa fa-check-circle text-green-500 mt-1"></i><span>X-Banner, dll untuk kebutuhan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong></span></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
     </section>
-            <!-- Halaman Portofolio -->
+        <!-- Halaman Portofolio -->
     <section id="portofolio" class="page-content">
         <div class="relative hero-container w-full overflow-hidden">
             <div class="flex justify-around font-bold menu-container">
                 <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
                 <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
                 <a href="#" class="menu-link active" onclick="changePage('portofolio', event)">Portofolio</a>
+                <a href="#" class="menu-link" onclick="changePage('layanan', event)">Layanan</a>
+                <a href="#" class="menu-link" onclick="changePage('kontak', event)">Kontak</a>
             </div>
             
             <div class="max-w-6xl mx-auto p-4">
@@ -301,13 +275,15 @@
             </div>
         </div>
     </section>
-            <!-- Halaman Kontak -->
+        <!-- Halaman Kontak -->
     <section id="kontak" class="page-content">
         <div class="relative hero-container w-full overflow-hidden">
             <div class="flex justify-around font-bold menu-container">
                 <a href="#" class="menu-link" onclick="changePage('beranda', event)">Beranda</a>
                 <a href="#" class="menu-link" onclick="changePage('profil', event)">Profil</a>
                 <a href="#" class="menu-link" onclick="changePage('portofolio', event)">Portofolio</a>
+                <a href="#" class="menu-link" onclick="changePage('layanan', event)">Layanan</a>
+                <a href="#" class="menu-link active" onclick="changePage('kontak', event)">Kontak</a>
             </div>
             
             <div class="max-w-4xl mx-auto bg-white p-4 rounded-lg shadow-md m-4">
@@ -361,7 +337,7 @@
             </div>
         </div>
     </section>
-            </div>
+        </div>
     </main>
 
     <!-- Skrip JavaScript untuk Navigasi Halaman -->
@@ -395,7 +371,3 @@
 
 </body>
 </html>
-
-        
-            
-                                                                                                                                                                     
