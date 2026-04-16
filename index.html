@@ -26,20 +26,26 @@
             .text-shadow-sm {
                 text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
             }
-            .box-service-blue {
-                @apply bg-primary border-2 border-gold rounded-xl text-gold p-5 mb-4 relative w-full;
+            .box-3d {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                border: 2px solid #f3d278;
+                border-radius: 8px;
+                background: linear-gradient(145deg, #1a3b7a, #0a2463);
             }
-            .box-service-gold {
-                @apply bg-gold border-2 border-primary rounded-xl text-primary p-5 mb-4 relative w-full;
+            .box-gold-3d {
+                box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+                border-radius: 8px;
+                background: linear-gradient(145deg, #f7d88f, #f3d278);
             }
-            .icon-title-row {
-                @apply flex justify-between items-center mb-3;
+            /* Tata letak responsif: 1 kolom di HP, 2 kolom di layar besar */
+            .responsive-grid {
+                display: grid;
+                grid-template-columns: 1fr;
             }
-            .service-title {
-                @apply flex items-center gap-3 text-2xl font-bold;
-            }
-            .click-label {
-                @apply flex items-center gap-1 text-sm font-medium;
+            @media (min-width: 768px) {
+                .responsive-grid {
+                    grid-template-columns: 55fr 45fr;
+                }
             }
             /* Gaya untuk Pop-up */
             .modal {
@@ -56,11 +62,12 @@
             .modal-content {
                 background-color: #fefefe;
                 margin: 10% auto;
-                padding: 24px;
-                border-radius: 12px;
+                padding: 20px;
+                border: 1px solid #888;
                 width: 85%;
                 max-width: 500px;
-                box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.2);
             }
             .close {
                 color: #aaa;
@@ -83,7 +90,7 @@
         <div class="min-h-screen h-screen overflow-hidden bg-white flex flex-col">
             
             <!-- Bagian Judul Atas -->
-            <div class="py-2 px-4 text-center bg-gray-50">
+            <div class="py-2 px-4 text-center bg-gray-50 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]">
                 <h1 class="font-black text-[clamp(1.8rem,5vw,2.2rem)] text-primary tracking-wide leading-tight">Layanan Unggulan</h1>
                 <h2 class="font-semibold text-[clamp(1rem,3vw,1.3rem)] text-gold relative inline-block pb-1 mt-0">
                     Jasa Tugas Diklat
@@ -95,79 +102,68 @@
             <div class="w-full h-[1px] bg-gray-200"></div>
 
             <!-- Konten Utama -->
-            <div class="p-4 flex flex-col justify-center">
+            <div class="responsive-grid items-stretch flex-grow">
                 
-                <!-- Kotak PKN -->
-                <div class="box-service-blue cursor-pointer" onclick="openModal('pknModal')">
-                    <div class="icon-title-row">
-                        <div class="service-title">
-                            <i class="fa fa-th-large"></i>
-                            <span>PKN</span>
+                <!-- Kolom Kiri: Tombol Layanan -->
+                <div class="p-3 bg-gray-50 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] flex flex-col justify-center gap-2 py-2">
+                    
+                    <!-- Kotak PKN (Dengan Tanda Klik) -->
+                    <div id="pknBtn" class="box-3d text-white p-3 cursor-pointer transition duration-300 hover:scale-[1.01] relative" onclick="openModal('pknModal')">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i class="fa fa-th-large text-gold text-lg"></i>
+                            <h3 class="font-bold text-lg text-gold">PKN</h3>
                         </div>
-                        <div class="click-label">
-                            <i class="fa fa-hand-pointer-o"></i>
-                            <span>Klik</span>
-                        </div>
+                        <p class="text-gray-100 text-sm pl-6 leading-tight">(Pelatihan Kepemimpinan Nasional)</p>
+                        <p class="text-gray-100 text-sm pl-6 leading-tight mt-0.5">Tingkat II & Tingkat I</p>
+                        <!-- Tanda Klik -->
+                        <span class="absolute bottom-2 right-3 text-xs text-gold/80"><i class="fa fa-hand-pointer-o mr-1"></i>Klik</span>
                     </div>
-                    <p class="text-gray-100 text-lg pl-9 leading-tight">(Pelatihan Kepemimpinan Nasional)</p>
-                    <p class="text-gray-100 text-lg pl-9 leading-tight mt-1">Tingkat II & Tingkat I</p>
+
+                    <!-- Kotak PKA (Dengan Tanda Klik) -->
+                    <div id="pkaBtn" class="bg-primary text-white p-3 rounded-lg shadow-lg cursor-pointer transition duration-300 hover:scale-[1.01] relative" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); background: linear-gradient(145deg, #1a3b7a, #0a2463); border-radius: 8px;" onclick="openModal('pkaModal')">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i class="fa fa-plus-square-o text-gold text-lg"></i>
+                            <h3 class="font-bold text-lg text-gold">PKA</h3>
+                        </div>
+                        <p class="text-gray-100 text-sm pl-6 leading-tight">(Pelatihan Kepemimpinan Administrator)</p>
+                        <!-- Tanda Klik -->
+                        <span class="absolute bottom-2 right-3 text-xs text-gold/80"><i class="fa fa-hand-pointer-o mr-1"></i>Klik</span>
+                    </div>
+
+                    <!-- Kotak PKP (Dengan Tanda Klik) -->
+                    <div id="pkpBtn" class="bg-primary text-white p-3 rounded-lg shadow-lg cursor-pointer transition duration-300 hover:scale-[1.01] relative" style="box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); background: linear-gradient(145deg, #1a3b7a, #0a2463); border-radius: 8px;" onclick="openModal('pkpModal')">
+                        <div class="flex items-center gap-2 mb-1">
+                            <i class="fa fa-sun-o text-gold text-lg"></i>
+                            <h3 class="font-bold text-lg text-gold">PKP</h3>
+                        </div>
+                        <p class="text-gray-100 text-sm pl-6 leading-tight">(Pelatihan Kepemimpinan Pengawas)</p>
+                        <!-- Tanda Klik -->
+                        <span class="absolute bottom-2 right-3 text-xs text-gold/80"><i class="fa fa-hand-pointer-o mr-1"></i>Klik</span>
+                    </div>
+
+                    <!-- Kotak Desain & Cetak (Dengan Tanda Klik) -->
+                    <div id="cetakBtn" class="box-gold-3d text-primary p-3 cursor-pointer transition duration-300 hover:scale-[1.01] relative" onclick="openModal('cetakModal')">
+                        <div class="flex items-center gap-2">
+                            <i class="fa fa-file-text-o text-primary text-lg"></i>
+                            <h3 class="font-bold text-lg text-primary">Design / Cetak</h3>
+                        </div>
+                        <!-- Tanda Klik -->
+                        <span class="absolute bottom-2 right-3 text-xs text-primary/60"><i class="fa fa-hand-pointer-o mr-1"></i>Klik</span>
+                    </div>
+
                 </div>
 
-                <!-- Kotak PKA -->
-                <div class="box-service-blue cursor-pointer" onclick="openModal('pkaModal')">
-                    <div class="icon-title-row">
-                        <div class="service-title">
-                            <i class="fa fa-plus-square-o"></i>
-                            <span>PKA</span>
-                        </div>
-                        <div class="click-label">
-                            <i class="fa fa-hand-pointer-o"></i>
-                            <span>Klik</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-100 text-lg pl-9 leading-tight">(Pelatihan Kepemimpinan Administrator)</p>
+                <!-- Kolom Kanan: Gambar Gedung -->
+                <div class="h-[150px] md:h-auto relative overflow-hidden bg-gray-200">
+                    <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gedung Kantor" class="w-full h-full object-cover object-center">
                 </div>
 
-                <!-- Kotak PKP -->
-                <div class="box-service-blue cursor-pointer" onclick="openModal('pkpModal')">
-                    <div class="icon-title-row">
-                        <div class="service-title">
-                            <i class="fa fa-sun-o"></i>
-                            <span>PKP</span>
-                        </div>
-                        <div class="click-label">
-                            <i class="fa fa-hand-pointer-o"></i>
-                            <span>Klik</span>
-                        </div>
-                    </div>
-                    <p class="text-gray-100 text-lg pl-9 leading-tight">(Pelatihan Kepemimpinan Pengawas)</p>
-                </div>
-
-                <!-- Kotak Desain & Cetak -->
-                <div class="box-service-gold cursor-pointer" onclick="openModal('cetakModal')">
-                    <div class="icon-title-row">
-                        <div class="service-title">
-                            <i class="fa fa-file-text-o"></i>
-                            <span>Design / Cetak</span>
-                        </div>
-                        <div class="click-label">
-                            <i class="fa fa-hand-pointer-o"></i>
-                            <span>Klik</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <!-- Gambar Gedung -->
-            <div class="w-full h-[200px] relative overflow-hidden bg-gray-200">
-                <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Gedung Kantor" class="w-full h-full object-cover object-center">
             </div>
 
             <!-- Bagian Hak Cipta Bawah -->
-            <div class="bg-primary py-4 px-6 text-center text-gold mt-auto">
-                <p class="text-base">Copyright © 2026 AW Solutions - Penyedia Jasa</p>
-                <p class="text-base mt-1">Tugas Diklat PKN, PKA, PKP</p>
+            <div class="bg-primary py-2 px-6 text-center text-gold">
+                <p class="text-xs">Copyright © 2026 AW Solutions - Penyedia Jasa</p>
+                <p class="text-xs mt-0.5">Tugas Diklat PKN, PKA, PKP</p>
             </div>
 
         </div>
@@ -177,13 +173,17 @@
     <div id="pknModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('pknModal')">&times;</span>
-            <h2 class="text-xl font-bold mb-3 text-primary">Tugas Diklat PKN</h2>
+            <h2 class="text-xl font-bold mb-3 text-primary">Tugas Diklat PKN TK. II</h2>
             <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                <li>Penyusunan makalah kebijakan publik</li>
-                <li>Analisis studi kasus pemerintahan</li>
-                <li>Pembuatan laporan kinerja instansi</li>
-                <li>Simulasi rapat kerja dan notulensi</li>
-                <li>Penyusunan materi presentasi</li>
+                <li>Essay Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Observasi Lapangan (OL)</li>
+                <li>Rancangan Proyek Perubahan</li>
+                <li>Laporan Implementasi Proyek Perubahan</li>
+                <li>Desain Infografis dan Majalah Proyek Perubahan</li>
+                <li>Bahan Tayang Seminar Proyek Perubahan</li>
+                <li>Desain Baliho/ Spanduk/ X-Banner Pameran Proper</li>
+                <li>Video Presentasi</li>
             </ul>
         </div>
     </div>
@@ -194,11 +194,15 @@
             <span class="close" onclick="closeModal('pkaModal')">&times;</span>
             <h2 class="text-xl font-bold mb-3 text-primary">Tugas Diklat PKA</h2>
             <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                <li>Administrasi perkantoran dan kearsipan</li>
-                <li>Penyusunan surat-menyurat dinas</li>
-                <li>Pengelolaan data dan basis data</li>
-                <li>Pembuatan laporan administrasi bulanan</li>
-                <li>Penjadwalan kegiatan kantor</li>
+                <li>Essay Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Studi Lapangan (Stula)</li>
+                <li>Rancangan Aksi Perubahan</li>
+                <li>Laporan Implementasi Aksi Perubahan</li>
+                <li>Desain Infografis dan Majalah Aksi Perubahan</li>
+                <li>Bahan Tayang Seminar Aksi Perubahan</li>
+                <li>Desain Baliho/ Spanduk/ X-Banner Pameran Akper</li>
+                <li>Video Presentasi</li>
             </ul>
         </div>
     </div>
@@ -209,11 +213,15 @@
             <span class="close" onclick="closeModal('pkpModal')">&times;</span>
             <h2 class="text-xl font-bold mb-3 text-primary">Tugas Diklat PKP</h2>
             <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                <li>Pengawasan dan evaluasi kinerja</li>
-                <li>Penyusunan laporan audit internal</li>
-                <li>Analisis risiko dan kendala lapangan</li>
-                <li>Pembuatan rekomendasi kebijakan</li>
-                <li>Pemantauan pelaksanaan program kerja</li>
+                <li>Essay Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Agenda I, Agenda II, Agenda III</li>
+                <li>Tugas Individu Studi Lapangan (Stula)</li>
+                <li>Rancangan Aksi Perubahan</li>
+                <li>Laporan Implementasi Aksi Perubahan</li>
+                <li>Desain Infografis dan Majalah Aksi Perubahan</li>
+                <li>Bahan Tayang Seminar Aksi Perubahan</li>
+                <li>Desain Baliho/ Spanduk/ X-Banner Pameran Akper</li>
+                <li>Video Presentasi</li>
             </ul>
         </div>
     </div>
@@ -224,11 +232,11 @@
             <span class="close" onclick="closeModal('cetakModal')">&times;</span>
             <h2 class="text-xl font-bold mb-3 text-primary">Layanan Desain & Cetak</h2>
             <ul class="list-disc pl-5 space-y-1 text-gray-700">
-                <li>Desain tata letak dokumen resmi</li>
-                <li>Pencetakan dokumen kualitas tinggi</li>
-                <li>Penjilidan dokumen (hardcover/softcover)</li>
-                <li>Desain grafis untuk keperluan presentasi</li>
-                <li>Konversi dan pengolahan file dokumen</li>
+                <li>Majalah untuk kebutuhan PKN, PKA, dan PKP</li>
+                <li>Infografis untuk kebutuhan PKN, PKA, dan PKP</li>
+                <li>Baliho/Backdrop untuk kebutuhan PKN, PKA, dan PKP</li>
+                <li>Spanduk untuk kebutuhan PKN, PKA, dan PKP</li>
+                <li>X-Banner dan kebutuhan pencetakan lainnya</li>
             </ul>
         </div>
     </div>
@@ -242,7 +250,11 @@
 
         // Fungsi menutup modal
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+            document.getElementById(modalId).getElementsByClassName('modal-content')[0].style.transform = "scale(0.9)";
+            setTimeout(() => {
+                document.getElementById(modalId).style.display = "none";
+                document.getElementById(modalId).getElementsByClassName('modal-content')[0].style.transform = "";
+            }, 200);
         }
 
         // Menutup modal jika pengguna mengklik di luar konten
