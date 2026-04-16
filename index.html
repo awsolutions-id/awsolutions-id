@@ -22,7 +22,7 @@
                     colors: {
                         biruTua: '#0a2463',
                         kuning: '#f3d278',
-                        abuMuda: '#f0f2f5',
+                        abuMuda: '#f8f9fa',
                     },
                     fontFamily: {
                         'sans': ['Roboto', 'sans-serif'],
@@ -37,18 +37,42 @@
       html, body {width: 100%; height: 100%; font-family: 'Roboto', sans-serif;}
       
       /* Menu Navigasi */
-      .menu-container {background-color: #0a2463; padding: 12px 0; position: sticky; top:0; z-index:99; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 24px; width: 100%;}
-      .menu-link {font-size: 16px; color: #f3d278; text-decoration: none; padding-bottom: 4px; font-weight: 500;}
-      .menu-link.active {border-bottom: 3px solid #fff; font-weight: 700;}
+      .menu-container {
+          background-color: #0a2463; 
+          padding: 16px 0; 
+          position: sticky; 
+          top: 0; 
+          z-index: 99; 
+          display: flex; 
+          flex-wrap: wrap; 
+          justify-content: center; 
+          gap: 8px 24px; 
+          width: 100%;
+      }
+      .menu-link {
+          font-size: 16px; 
+          color: #f3d278; 
+          text-decoration: none; 
+          padding-bottom: 4px; 
+          font-weight: 500;
+      }
+      .menu-link.active {
+          border-bottom: 3px solid #fff; 
+          font-weight: 700;
+      }
       
       /* Latar Judul */
-      .header-bg {background-color: #f0f2f5; padding: 32px 16px; text-align: center;}
+      .header-bg {
+          background-color: #f8f9fa; 
+          padding: 40px 20px; 
+          text-align: center;
+      }
       
       /* Kartu Layanan */
       .service-card {
           border-radius: 12px;
-          padding: 24px 20px;
-          margin: 16px;
+          padding: 28px 24px;
+          margin: 20px 16px;
           position: relative;
           cursor: pointer;
           box-shadow: 0 4px 12px rgba(0,0,0,0.1);
@@ -70,7 +94,7 @@
       .click-label {
           position: absolute;
           bottom: 24px;
-          right: 20px;
+          right: 24px;
           display: flex;
           align-items: center;
           gap: 6px;
@@ -78,28 +102,36 @@
           font-weight: 500;
       }
       .service-icon {
-          font-size: 28px;
+          font-size: 32px;
           margin-bottom: 12px;
       }
       .service-title {
-          font-size: 24px;
+          font-size: 28px;
           font-weight: 700;
-          margin-bottom: 8px;
+          margin-bottom: 12px;
           display: flex;
           align-items: center;
-          gap: 10px;
+          gap: 12px;
       }
       .service-subtitle {
           font-size: 18px;
           font-weight: 400;
-          opacity: 0.9;
+          line-height: 1.6;
       }
       
       /* Gambar Gedung */
       .building-img {width: 100%; height: auto; display: block;}
       
       /* Footer */
-      .footer-container {background-color: #0a2463; padding: 24px 16px; text-align: center; color: #f3d278; font-weight: 500; font-size: 16px;}
+      .footer-container {
+          background-color: #0a2463; 
+          padding: 24px 16px; 
+          text-align: center; 
+          color: #f3d278; 
+          font-weight: 500; 
+          font-size: 16px;
+          line-height: 1.6;
+      }
       
       /* Pop-up */
       .modal {
@@ -292,8 +324,8 @@
                 <li class="flex items-start">
                     <i class="fa fa-check-circle text-green-500 mr-3 mt-1"></i>
                     <span>Bahan Tayang Seminar Aksi Perubahan</span>
-            </li>
-                            <li class="flex items-start">
+                </li>
+                                <li class="flex items-start">
                     <i class="fa fa-check-circle text-green-500 mr-3 mt-1"></i>
                     <span>Essay Agenda I, Agenda II, Agenda III</span>
                 </li>
@@ -388,4 +420,5 @@
 </body>
 </html>
 
+                
     
