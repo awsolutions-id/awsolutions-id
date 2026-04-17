@@ -109,14 +109,21 @@
             text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
         }
 
-        /* JARAK DIATUR JADI 80px SESUAI PERMINTAAN */
+        /* DEFAULT = MODE POTRET = 80px */
         .bottom-section {
-            margin-top: 80px; /* DIUBAH JADI 80px */
+            margin-top: 80px; /* UNTUK POTRET */
             width: 100%;
             display: flex;
             flex-direction: column;
             align-items: center;
             padding-bottom: 0px;
+        }
+
+        /* KHUSUS MODE LANDSCAPE = 100px */
+        @media screen and (orientation: landscape) {
+            .bottom-section {
+                margin-top: 100px !important; /* UNTUK LANDSCAPE */
+            }
         }
 
         /* TOMBOL DIPERKECIL */
@@ -176,7 +183,6 @@
                 </div>
             </div>
 
-            <!-- POSISI SEKARANG 80px -->
             <div class="bottom-section">
                 <p style="color: white; font-size: 0.85rem; margin-bottom: 20px; line-height: 1.5; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">
                     Solusi Pengetikan Desain dan Cetak untuk Kebutuhan Tugas Diklat Anda
