@@ -24,20 +24,19 @@
             height: 100%;
         }
 
-        /* WARNA SESUAI HALAMAN LAYANAN */
         :root {
             --warna-biru: #002B5B;
             --warna-emas: #F5D061;
         }
 
-        /* NAVBAR - DIKECILKAN FONTNYA AGAR SEMUA MUAT */
+        /* NAVBAR - DIATUR AGAR TIDAK TERPOTONG */
         .navbar {
             background-color: var(--warna-biru);
-            padding: 10px 5px;
+            padding: 12px 5px;
             position: relative;
             z-index: 3;
             width: 100%;
-            display: preview;
+            display: flex;
             justify-content: center;
             flex-wrap: nowrap;
         }
@@ -45,8 +44,8 @@
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 5px; /* Jarak diperkecil */
-            font-size: 0.9rem; /* DIKECILKAN LAGI */
+            margin: 0 6px;
+            font-size: 0.9rem; /* UKURAN KECIL AGAR SEMUA MUAT */
             font-weight: 500;
             padding-bottom: 5px;
             border-bottom: 3px solid transparent;
@@ -58,14 +57,13 @@
             border-bottom: 3px solid white;
         }
 
-        /* BACKGROUND DENGAN LAPISAN BITUMBIR TUA MERATA */
         .hero-section {
             background-image: url('Latar Mengetik 01.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            min-height: calc(100vh - 50px);
+            min-height: calc(100vh - 55px);
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -83,7 +81,6 @@
             z-index: 1;
         }
 
-        /* KONTEN UTAMA */
         .content-wrapper {
             position: relative;
             z-index: 2;
@@ -97,7 +94,6 @@
             width: 100%;
         }
 
-        /* LOGO KECIL */
         .logo-small {
             color: white;
             font-size: 0.9rem;
@@ -105,7 +101,6 @@
             margin-bottom: 15px;
         }
 
-        /* BAGIAN BAWAH */
         .bottom-section {
             margin-top: auto;
             width: 100%;
@@ -115,24 +110,18 @@
             padding-bottom: 0px;
         }
 
-        /* STYLE HAK CIPTA - DITURUNKAN PALING BAWAH */
+        /* HAK CIPTA DITURUNKAN PALING BAWAH */
         .copyright {
             color: white;
             font-size: 0.8rem;
-            margin-top: 30px;
-            padding: 20px 0; /* DITAMBAH PADDING ATAS BAWAH */
-            width: 100%;
-            text-align: center;
-            position: absolute; /* AGAR POSISINYA KAKU DI BAWAH */
-            bottom: 0;
-            left: 0;
+            margin-top: 40px;
+            margin-bottom: 50px; /* DITAMBAH AGAR TURUN JAUH */
             opacity: 0.8;
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR MENU -->
     <div class="navbar">
         <a href="#" class="active">Beranda</a>
         <a href="#">Profil</a>
@@ -141,12 +130,12 @@
         <a href="#">Kontak</a>
     </div>
 
-    <!-- HERO SECTION -->
     <div class="hero-section">
         <div class="content-wrapper">
             
             <div class="top-content">
-                <div class="logo-small">AW Solutions</td>
+                <div class="logo-small">AW Solutions</div>
+
                 <h1 style="color: white; font-size: clamp(1.8rem, 5vw, 2.5rem); font-weight: 700; margin-bottom: 25px; white-space: nowrap;">
                     Jasa Tugas Diklat
                 </h1>
@@ -173,11 +162,10 @@
                         Mulai Sekarang
                     </button>
                 </a>
-            </div>
 
-            <!-- HAK CIPTA SUDAH DITURUNKAN -->
-            <div class="copyright">
-                &copy; 2026 AW Solutions - All Rights Reserved
+                <div class="copyright">
+                    &copy; 2026 AW Solutions - All Rights Reserved
+                </div>
             </div>
 
         </div>
