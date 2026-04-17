@@ -14,9 +14,10 @@
             font-family: Arial, sans-serif;
         }
 
-        /* WARNA BIRU TUA SESUAI HALAMAN LAIN */
+        /* WARNA SESUAI HALAMAN LAYANAN */
         :root {
-            --warna-biru: #001f3f;
+            --warna-biru: #002B5B;
+            --warna-emas: #F5D061;
         }
 
         /* BACKGROUND DENGAN LAPISAN BIRU TUA MERATA */
@@ -70,20 +71,26 @@
             margin: 0 15px;
             font-size: 1.2rem;
             font-weight: 500;
+            padding-bottom: 5px; /* Ruang untuk garis bawah */
+            border-bottom: 3px solid transparent; /* Awalnya transparan */
+            transition: 0.3s;
         }
 
-        .navbar a:hover {
-            text-decoration: underline;
+        /* EFEK SAAT DIKLIK / AKTIF */
+        .navbar a:hover,
+        .navbar a.active {
+            border-bottom: 3px solid white; /* Garis bawah putih muncul */
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+    <!-- NAVBAR MENU SESUAI PERMINTAAN -->
     <div class="navbar flex justify-center">
-        <a href="#">Beranda</a>
+        <a href="#" class="active">Beranda</a>
+        <a href="#">Profil</a>
         <a href="#">Layanan</a>
-        <a href="#">Tentang Kami</a>
+        <a href="#">Portofolio</a>
         <a href="#">Kontak</a>
     </div>
 
@@ -93,12 +100,20 @@
             
             <p style="color: white; font-size: 1.2rem; margin-bottom: 10px;">pengetikan desain dan cetak</p>
 
-            <h1 style="color: white; font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold; margin-bottom: 20px;">
+            <h1 style="color: var(--warna-biru); font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold; margin-bottom: 20px;">
                 Jasa Tugas Diklat
             </h1>
 
-            <p style="color: white; font-size: clamp(1rem, 3vw, 1.5rem); max-width: 800px; line-height: 1.6; margin-bottom: 40px;">
-                PKN Pelatihan Kepemimpinan Nasional Tingkat II dan Tingkat I PKA Pelatihan Kepemimpinan Administrator PKP Pelatihan Kepemimpinan Pengawas
+            <!-- TULISAN DENGAN ICON SESUAI HALAMAN LAYANAN -->
+            <p style="color: white; font-size: clamp(1rem, 3vw, 1.5rem); max-width: 800px; line-height: 1.8; margin-bottom: 40px;">
+                <i class="fas fa-th-large" style="color: var(--warna-emas); margin-right: 8px;"></i>
+                PKN Pelatihan Kepemimpinan Nasional Tingkat II dan Tingkat I
+                <br>
+                <i class="fas fa-plus-square" style="color: var(--warna-emas); margin-right: 8px;"></i>
+                PKA Pelatihan Kepemimpinan Administrator
+                <br>
+                <i class="fas fa-certificate" style="color: var(--warna-emas); margin-right: 8px;"></i>
+                PKP Pelatihan Kepemimpinan Pengawas
             </p>
 
             <!-- TULISAN DI ATAS TOMBOL, UKURAN KECIL -->
