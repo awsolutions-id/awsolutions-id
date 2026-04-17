@@ -1,4 +1,4 @@
-
+<!DOCTYPE html>
 <html lang="id">
 <head>
     <meta charset="UTF-8">
@@ -8,10 +8,15 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
-        body {
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box; /* PENTING: Hilangkan garis putih samping */
+        }
+
+        body {
             font-family: Arial, sans-serif;
+            overflow-x: hidden; /* Agar tidak bisa digeser ke samping */
         }
 
         /* WARNA SESUAI HALAMAN LAYANAN */
@@ -27,7 +32,8 @@
             background-position: center;
             background-repeat: no-repeat;
             position: relative;
-            min-height: 100vh;
+            min-height: 100vh; /* Agar pas satu layar */
+            width: 100%;
             display: flex;
             flex-direction: column;
         }
@@ -40,7 +46,7 @@
             width: 100%;
             height: 100%;
             background-color: var(--warna-biru);
-            opacity: 0.9;
+            opacity: 0.75; /* Gambar lebih jelas */
             z-index: 1;
         }
 
@@ -55,6 +61,7 @@
             align-items: center;
             text-align: center;
             padding: 20px;
+            width: 100%;
         }
 
         /* NAVBAR */
@@ -63,29 +70,34 @@
             padding: 15px 0;
             position: relative;
             z-index: 3;
+            width: 100%;
         }
 
         .navbar a {
             color: white;
             text-decoration: none;
-            margin: 0 15px;
+            margin: 0 12px;
             font-size: 1.2rem;
             font-weight: 500;
-            padding-bottom: 5px; /* Ruang untuk garis bawah */
-            border-bottom: 3px solid transparent; /* Awalnya transparan */
+            padding-bottom: 5px;
+            border-bottom: 3px solid transparent;
             transition: 0.3s;
         }
 
-        /* EFEK SAAT DIKLIK / AKTIF */
-        .navbar a:hover,
+        /* HANYA MENU AKTIF YANG ADA GARIS BAWAH */
         .navbar a.active {
-            border-bottom: 3px solid white; /* Garis bawah putih muncul */
+            border-bottom: 3px solid white;
+        }
+
+        /* SAAT DIARAHKAN KURSOR TAPI TIDAK AKTIF */
+        .navbar a:hover:not(.active) {
+            border-bottom: 3px solid rgba(255, 255, 255, 0.5);
         }
     </style>
 </head>
 <body>
 
-    <!-- NAVBAR MENU SESUAI PERMINTAAN -->
+    <!-- NAVBAR MENU -->
     <div class="navbar flex justify-center">
         <a href="#" class="active">Beranda</a>
         <a href="#">Profil</a>
@@ -100,14 +112,14 @@
             
             <p style="color: white; font-size: 1.2rem; margin-bottom: 10px;">pengetikan desain dan cetak</p>
 
-            <h1 style="color: var(--warna-biru); font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold; margin-bottom: 20px;">
+            <h1 style="color: white; font-size: clamp(2.5rem, 8vw, 4rem); font-weight: bold; margin-bottom: 20px;">
                 Jasa Tugas Diklat
             </h1>
 
-            <!-- TULISAN DENGAN ICON SESUAI HALAMAN LAYANAN -->
-            <p style="color: white; font-size: clamp(1rem, 3vw, 1.5rem); max-width: 800px; line-height: 1.8; margin-bottom: 40px;">
+            <!-- TULISAN DENGAN ICON DAN SINGKATAN -->
+            <p style="color: white; font-size: clamp(1rem, 3vw, 1.5rem); max-width: 90%; line-height: 1.8; margin-bottom: 40px;">
                 <i class="fas fa-th-large" style="color: var(--warna-emas); margin-right: 8px;"></i>
-                PKN Pelatihan Kepemimpinan Nasional Tingkat II dan Tingkat I
+                PKN Pelatihan Kepemimpinan Nasional, TK. II dan TK. I
                 <br>
                 <i class="fas fa-plus-square" style="color: var(--warna-emas); margin-right: 8px;"></i>
                 PKA Pelatihan Kepemimpinan Administrator
@@ -116,7 +128,7 @@
                 PKP Pelatihan Kepemimpinan Pengawas
             </p>
 
-            <!-- TULISAN DI ATAS TOMBOL, UKURAN KECIL -->
+            <!-- TULISAN DI ATAS TOMBOL -->
             <p style="color: white; font-size: 0.9rem; margin-bottom: 20px;">
                 "Solusi Lengkap untuk Kebutuhan Tugas Diklat Anda"
             </p>
@@ -126,4 +138,7 @@
             </button>
 
         </div>
-    </di
+    </div>
+
+</body>
+</html>
