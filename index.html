@@ -1,55 +1,85 @@
-        <!-- Halaman Kontak -->
-        <section id="kontak" class="page-content py-6 px-3">
-            <div class="max-w-4xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <h2 class="text-3xl font-black mb-5 text-primary">Hubungi Kami</h2>
-                <p class="text-gray-700 mb-8 font-bold text-xl">Silakan hubungi kami untuk pemesanan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong> atau pertanyaan lainnya:</p>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <!-- Kolom Kiri: Info Kontak -->
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-primary">Informasi Kontak</h3>
-                        <div class="space-y-3 font-bold text-lg">
-                            <div class="flex items-center gap-3">
-                                <i class="fa fa-whatsapp text-2xl text-green-600 w-6"></i>
-                                <span>0821 8766 2626</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <i class="fa fa-whatsapp text-2xl text-green-600 w-6"></i>
-                                <span>0859 7515 3455</span>
-                            </div>
-                            <div class="flex items-center gap-3">
-                                <i class="fa fa-map-marker text-2xl text-red-600 w-6"></i>
-                                <span>Makassar, Sulawesi Selatan</span>
-                            </div>
-                        </div>
-                        
-                        <h3 class="text-2xl font-bold mt-8 mb-4 text-primary">Jam Operasional</h3>
-                        <div class="space-y-2 text-gray-700 font-bold text-lg">
-                            <p>Senin - Jumat: 08.00 - 17.00 WITA</p>
-                            <p>Sabtu: 08.00 - 12.00 WITA</p>
-                            <p>Minggu & Hari Libur: Tutup</p>
-                        </div>
-                    </div>
-                    
-                    <!-- Kolom Kanan: Form Pesan -->
-                    <div>
-                        <h3 class="text-2xl font-bold mb-4 text-primary">Kirim Pesan</h3>
-                        <form class="space-y-4 font-bold text-lg">
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nama Lengkap</label>
-                                <input type="text" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Nama Anda">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Nomor WhatsApp</label>
-                                <input type="text" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Nomor yang bisa dihubungi">
-                            </div>
-                            <div>
-                                <label class="block text-gray-700 mb-2">Pesan / Keterangan Tugas</label>
-                                <textarea rows="5" class="w-full px-4 py-3 border-2 border-gray-300 rounded-lg focus:outline-none focus:border-primary" placeholder="Tuliskan kebutuhan Jasa Tugas Diklat PKN, PKA, atau PKP yang Anda butuhkan"></textarea>
-                            </div>
-                            <button type="submit" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg transition-all duration-300 font-bold w-full text-lg">Kirim Pesan</button>
-                        </form>
-                    </div>
-                </div>
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hubungi Kami - AW Solutions</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#002B5B',     /* Biru Tua */
+                        secondary: '#FFD700',   /* Emas */
+                        dark: '#212121',
+                        light: '#F5F5F5',
+                    },
+                    fontFamily: {
+                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style>
+        .page-content {display:block;}
+        input, textarea {
+            border: 1px solid #ccc;
+            padding: 6px 8px;
+            width: auto;
+            display: inline-block;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arial:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body class="bg-white font-sans">
+
+    <section id="kontak" class="page-content py-6 px-4 max-w-4xl mx-auto">
+        <h2 class="text-3xl font-black mb-4 text-primary">Hubungi Kami</h2>
+        <p class="text-lg mb-6">Silakan hubungi kami untuk pemesanan <strong>Jasa Tugas Diklat PKN, PKA, PKP</strong> atau pertanyaan lainnya:</p>
+
+        <h3 class="text-2xl font-bold mb-3 text-primary">Informasi Kontak</h3>
+        <div class="text-lg mb-6 space-y-1">
+            <p>0821 8766 2626</p>
+            <p>0859 7515 3455</p>
+            <p>Makassar, Sulawesi Selatan</p>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-3 text-primary">Jam Operasional</h3>
+        <div class="text-lg mb-6 space-y-2">
+            <p>Senin - Jumat: 08.00 - 17.00 WITA</p>
+            <p>Sabtu: 08.00 - 12.00 WITA</p>
+            <p>Minggu & Hari Libur: Tutup</p>
+        </div>
+
+        <h3 class="text-2xl font-bold mb-4 text-primary">Kirim Pesan</h3>
+        
+        <form class="text-lg space-y-3">
+            <div class="flex flex-wrap items-center gap-2">
+                <label class="font-bold">Nama Lengkap</label>
+                <input type="text" placeholder="Nama Anda">
             </div>
-        </section>
+
+            <div class="flex flex-wrap items-center gap-2">
+                <label class="font-bold">Nomor WhatsApp</label>
+                <input type="text" placeholder="Nomor yang bisa dihubungi">
+            </div>
+
+            <div class="flex flex-wrap items-start gap-2">
+                <label class="font-bold pt-1">Pesan / Keterangan Tugas</label>
+                <textarea rows="3" placeholder="Tuliskan kebutuhan Jasa Tugas Diklat PKN, PKA, atau PKP yang Anda butuhkan"></textarea>
+            </div>
+
+            <div>
+                <button type="submit" class="bg-primary text-white px-4 py-1 rounded font-bold">Kirim Pesan</button>
+            </div>
+        </form>
+
+    </section>
+
+</body>
+</html>
