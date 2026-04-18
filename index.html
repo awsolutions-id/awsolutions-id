@@ -218,9 +218,10 @@
             width: 100%;
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start;
             align-items: center;
             padding: 20px;
+            padding-top: 60px;
             box-sizing: border-box;
         }
         .hero-overlay {
@@ -229,7 +230,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: rgba(0, 0, 0, 0.2); /* Lapisan gelap sedikit agar tulisan makin jelas */
+            background-color: rgba(0, 0, 0, 0.2);
             z-index: 1;
         }
         .content-wrapper {
@@ -238,7 +239,7 @@
             text-align: center;
             width: 100%;
         }
-        /* TULISAN AW SOLUTIONS - WARNA KUNING */
+        /* TULISAN AW SOLUTIONS - WARNA KUNING, UKURAN FONT TETAP */
         .logo-small {
             color: #FFD700;
             font-size: 1.3rem;
@@ -246,18 +247,18 @@
             margin-bottom: 15px;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
         }
-        /* TULISAN JASA TUGAS DIKLAT - WARNA BIRU DENGAN SHADOW KUAT */
+        /* TULISAN JASA TUGAS DIKLAT - WARNA BIRU DENGAN SHADOW PUTIH, UKURAN FONT TETAP */
         .judul-utama {
             color: #002B5B;
             font-size: clamp(2rem, 6vw, 3rem);
             font-weight: 900;
             margin-bottom: 30px;
-            text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.8), 
-                         2px 2px 4px rgba(0, 0, 0, 0.3); /* Shadow ganda agar sangat kentara */
+            text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9), 
+                         1px 1px 3px rgba(255, 255, 255, 0.7);
         }
-        /* TULISAN ITEM LAYANAN - DENGAN SHADOW */
+        /* TULISAN ITEM LAYANAN - UKURAN FONT TETAP */
         .item-layanan {
-            color: #ffffff;
+            color: #000000;
             font-size: clamp(1rem, 3vw, 1.3rem);
             line-height: 1.8;
             margin-bottom: 12px;
@@ -268,7 +269,7 @@
             margin-left: auto;
             margin-right: auto;
             text-align: left;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Shadow untuk teks agar mudah dibaca */
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
         .item-layanan i {
             color: #FFD700;
@@ -277,19 +278,19 @@
             width: 30px;
             text-align: center;
             flex-shrink: 0;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
-        /* TULISAN DESKRIPSI - DENGAN SHADOW */
+        /* TULISAN DESKRIPSI - HANYA INI YANG DIPERKECIL UKURANNYA */
         .deskripsi {
-            color: #ffffff;
-            font-size: clamp(1rem, 2.5vw, 1.2rem);
-            margin: 30px auto;
+            color: #000000;
+            font-size: clamp(0.85rem, 2vw, 1rem); /* Hanya ukuran ini yang diperkecil */
+            margin: 20px auto;
             line-height: 1.6;
             max-width: 500px;
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
         }
-        /* TOMBOL MULAI SEKARANG */
+        /* TOMBOL MULAI SEKARANG - UKURAN FONT TETAP, POSISI DIANGKAT */
         .tombol-mulai {
             background-color: white;
             color: #000000;
@@ -301,12 +302,13 @@
             cursor: pointer;
             white-space: nowrap;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 10px;
         }
-        /* COPYRIGHT - DENGAN SHADOW */
+        /* COPYRIGHT - UKURAN FONT TETAP, POSISI DIANGKAT */
         .copyright {
             color: #ffffff;
             font-size: 0.9rem;
-            margin-top: 40px;
+            margin-top: 20px;
             opacity: 0.95;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
         }
@@ -324,7 +326,7 @@
         <a href="#portofolio" onclick="showPage('portofolio')">Portofolio</a>
         <a href="#kontak" onclick="showPage('kontak')">Kontak</a>
     </div>
-    <!-- ============================================== -->
+        <!-- ============================================== -->
     <!-- HALAMAN BERANDA -->
     <!-- ============================================== -->
     <section id="beranda" class="page-content active">
@@ -357,7 +359,7 @@
             </div>
         </div>
     </section>
-    
+
     <!-- ============================================== -->
     <!-- HALAMAN PROFIL -->
     <!-- ============================================== -->
