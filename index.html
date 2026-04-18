@@ -426,18 +426,20 @@
         }
         .portofolio-grid {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: 1fr; /* Default 1 kolom untuk HP posisi tegak */
             gap: 25px;
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 10px;
-        }
-        /* Ini langsung di bawahnya, masih 1 bagian yang sama */
-        @media (min-width: 768px) {
-              .portofolio-grid {
-        grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk landscape/PC */
-            }
          }
+
+         /* Ini langsung di bawahnya, masih 1 bagian yang sama */
+         @media (min-width: 768px) {
+        .portofolio-grid {
+         grid-template-columns: repeat(5, 1fr); /* 5 kolom untuk landscape/PC */
+             }
+         }
+
         /* PROFIL STYLE */
         .profil-section {
             background-color: #f8f9fa;
