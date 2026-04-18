@@ -11,13 +11,8 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#002B5B',     // Biru Tua
-                        secondary: '#FFD700',   // Kuning Emas
-                        dark: '#1a1a1a',
-                        light: '#f8f9fa',
-                    },
-                    fontFamily: {
-                        sans: ['Arial', 'Helvetica', 'sans-serif'],
+                        primary: '#002B5B',
+                        secondary: '#FFD700',
                     },
                 }
             }
@@ -25,408 +20,351 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            .text-shadow-white {
-                text-shadow: 1px 1px 3px rgba(255,255,255,0.8);
-            }
             .text-shadow-black {
-                text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
+                text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
             }
-            .section-bg {
-                background-color: rgba(0, 43, 91, 0.9);
-                border-radius: 12px;
-                padding: 1.5rem;
-                margin: 1rem 0;
-            }
-            .btn-primary {
+            .btn-service {
                 background-color: #FFD700;
                 color: #002B5B;
                 font-weight: bold;
-                padding: 0.5rem 1.2rem;
-                border-radius: 8px;
-                transition: all 0.3s ease;
+                padding: 0.25rem 0.75rem;
+                border-radius: 6px;
+                font-size: 0.8rem;
+                transition: all 0.2s ease;
             }
-            .btn-primary:hover {
+            .btn-service:hover {
                 background-color: #fff2a3;
             }
-            .btn-secondary {
+            .detail-box {
+                background-color: rgba(255,255,255,0.95);
+                color: #002B5B;
+                border-radius: 6px;
+                padding: 0.75rem;
+                margin-top: 0.5rem;
+                display: none;
+                font-size: 0.9rem;
+            }
+            .btn-kembali {
                 background-color: #ffffff;
                 color: #002B5B;
                 font-weight: bold;
-                padding: 0.5rem 1.2rem;
-                border-radius: 8px;
-                transition: all 0.3s ease;
+                padding: 0.3rem 0.8rem;
+                border-radius: 6px;
+                font-size: 0.8rem;
+                transition: all 0.2s ease;
+                display: inline-block;
+                margin-bottom: 0.5rem;
             }
-            .btn-secondary:hover {
+            .btn-kembali:hover {
                 background-color: #e6e6e6;
             }
         }
     </style>
     <style>
-        /* GLOBAL STYLE */
         html, body {
-            font-family: 'Arial', sans-serif;
-            scroll-behavior: smooth;
             margin: 0;
             padding: 0;
+            font-family: Arial, sans-serif;
+            height: 100%;
+            overflow: hidden;
         }
-        /* HALAMAN BERANDA */
-        .beranda-page {
-            min-height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80') center/cover no-repeat;
+        .page {
+            width: 100%;
+            height: 100vh;
             display: flex;
             flex-direction: column;
+        }
+        .beranda {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
+                        url('https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixlib=rb-4.0.3&auto=format&fit=crop&w=1080&q=80') center/cover no-repeat;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 2rem;
+            color: white;
         }
-        /* HALAMAN UTAMA LENGKAP */
-        .main-page {
-            min-height: 100vh;
-            background-color: #f0f4f8;
-            display: none; /* Awalnya disembunyikan, muncul setelah klik mulai sekarang */
+        .utama {
+            background-color: #f8f9fa;
+            padding: 0.5rem;
+            box-sizing: border-box;
         }
-        .page-header {
+        .header {
             background-color: #002B5B;
             color: #FFD700;
-            padding: 1rem;
+            padding: 0.5rem;
             text-align: center;
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 0.5rem;
         }
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 1rem;
+        .content-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            height: calc(100vh - 100px);
+            justify-content: space-between;
         }
-        /* POP UP STYLE */
-        .modal {
-            display: none;
-            position: fixed;
-            z-index: 1000;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            overflow: auto;
-            background-color: rgba(0,0,0,0.7);
+        .section-box {
+            background-color: #002B5B;
+            color: white;
+            padding: 0.75rem;
+            border-radius: 8px;
         }
-        .modal-content {
-            background-color: #ffffff;
-            margin: 10% auto;
-            padding: 2rem;
-            border: 3px solid #FFD700;
-            border-radius: 12px;
-            width: 90%;
-            max-width: 500px;
-            position: relative;
-            color: #002B5B;
-        }
-        .close-btn {
-            position: absolute;
-            top: 1rem;
-            right: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: bold;
-            cursor: pointer;
-            color: #002B5B;
-        }
-        .close-btn:hover,
-        .close-btn:focus {
+        .section-title {
             color: #FFD700;
-            text-decoration: none;
-            cursor: pointer;
+            font-weight: bold;
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+        }
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: rgba(255,255,255,0.1);
+            padding: 0.4rem;
+            border-radius: 6px;
+            margin-bottom: 0.4rem;
+            font-size: 0.9rem;
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+        }
+        .product-btn {
+            background-color: transparent;
+            border: 1px solid #FFD700;
+            color: white;
+            padding: 0.4rem;
+            border-radius: 6px;
+            font-size: 0.8rem;
+            transition: all 0.2s ease;
+        }
+        .product-btn:hover {
+            background-color: #FFD700;
+            color: #002B5B;
+        }
+        .form-group {
+            margin-bottom: 0.4rem;
+        }
+        .form-input {
+            width: 100%;
+            padding: 0.4rem;
+            border-radius: 6px;
+            border: none;
+            font-size: 0.9rem;
+            color: #002B5B;
+        }
+        .btn-submit {
+            background-color: #FFD700;
+            color: #002B5B;
+            font-weight: bold;
+            padding: 0.5rem;
+            border-radius: 6px;
+            width: 100%;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+        }
+        .btn-submit:hover {
+            background-color: #fff2a3;
         }
     </style>
 </head>
 <body>
-    <!-- ============================================== -->
     <!-- HALAMAN BERANDA -->
-    <!-- ============================================== -->
-    <div class="beranda-page" id="beranda">
-        <h1 class="text-[clamp(1.8rem,5vw,3rem)] font-bold text-secondary mb-4 text-shadow-black">
+    <div class="page beranda" id="berandaPage">
+        <h1 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-secondary mb-3 text-shadow-black">
             AW Solutions
         </h1>
-        <h2 class="text-[clamp(1.5rem,4vw,2.5rem)] font-bold text-white mb-6 text-shadow-black">
+        <h2 class="text-[clamp(1.2rem,3vw,2rem)] font-bold mb-4 text-shadow-black">
             Jasa Tugas Diklat
         </h2>
-        <p class="text-[clamp(1rem,2.5vw,1.2rem)] text-white mb-10 max-w-lg text-shadow-black">
+        <p class="text-[clamp(0.9rem,2vw,1.1rem)] mb-8 max-w-md text-shadow-black">
             Solusi Penyusunan Tugas Diklat Kepemimpinan Berkualitas & Tepat Waktu
         </p>
-        <button onclick="bukaHalamanUtama()" class="btn-secondary text-lg px-8 py-3 text-shadow-white">
+        <button onclick="bukaHalamanUtama()" class="bg-white text-primary font-bold px-8 py-3 rounded-lg text-lg hover:bg-gray-100 transition-all">
             Mulai Sekarang
         </button>
-        <p class="text-white mt-12 text-sm text-shadow-black">
-            &copy; 2026 AW Solutions - All Rights Reserved
+        <p class="mt-10 text-sm text-shadow-black">
+            &copy; 2026 AW Solutions
         </p>
     </div>
 
-    <!-- ============================================== -->
-    <!-- HALAMAN UTAMA LENGKAP -->
-    <!-- ============================================== -->
-    <div class="main-page" id="halamanUtama">
-        <header class="page-header">
-            AW Solutions - Jasa Tugas Diklat
-        </header>
+    <!-- HALAMAN UTAMA -->
+    <div class="page utama" id="utamaPage" style="display: none;">
+        <!-- TOMBOL KEMBALI KE BERANDA -->
+        <button onclick="kembaliKeBeranda()" class="btn-kembali">
+            <i class="fas fa-arrow-left mr-1"></i> Kembali ke Beranda
+        </button>
 
-        <div class="container">
-            <!-- TOMBOL KEMBALI KE BERANDA -->
-            <button onclick="kembaliKeBeranda()" class="btn-primary mb-4">
-                <i class="fas fa-arrow-left mr-2"></i> Kembali ke Beranda
-            </button>
+        <div class="header">
+            AW Solutions
+        </div>
 
-            <!-- BAGIAN PROFIL PERUSAHAAN -->
-            <div class="section-bg text-white">
-                <h3 class="text-[clamp(1.2rem,3vw,1.5rem)] font-bold text-secondary mb-4">
-                    <i class="fas fa-building mr-2"></i> Profil Perusahaan
-                </h3>
-                <p class="mb-2"><strong>Bidang Usaha:</strong> Penyusunan Tugas Diklat Kepemimpinan, Desain & Cetak</p>
-                <p class="mb-2"><strong>Visi:</strong> Menjadi penyedia jasa terpercaya, berkualitas, dan tepat waktu dalam memenuhi kebutuhan tugas diklat</p>
-                <p><strong>Misi:</strong> Memberikan solusi lengkap, berkualitas tinggi, dan layanan profesional untuk setiap kebutuhan pelanggan</p>
+        <div class="content-wrapper">
+            <!-- PROFIL PERUSAHAAN -->
+            <div class="section-box">
+                <div class="section-title">Profil Perusahaan</div>
+                <p class="text-sm mb-1"><strong>Bidang Usaha:</strong> PKN, PKA, PKP, Desain & Cetak</p>
+                <p class="text-sm mb-1"><strong>Visi:</strong> Menjadi penyedia jasa terpercaya, berkualitas & tepat waktu.</p>
+                <p class="text-sm"><strong>Misi:</strong> Solusi lengkap, standar tinggi, layanan profesional.</p>
             </div>
 
-            <!-- BAGIAN LAYANAN UNGGULAN -->
-            <div class="section-bg text-white">
-                <h3 class="text-[clamp(1.2rem,3vw,1.5rem)] font-bold text-secondary mb-4">
-                    <i class="fas fa-list-check mr-2"></i> Layanan Unggulan
-                </h3>
-
-                <!-- LAYANAN PKN -->
-                <div class="flex justify-between items-center bg-white/10 p-3 rounded-lg mb-3">
-                    <span>PKN (Pelatihan Kepemimpinan Nasional) Tingkat II & Tingkat I</span>
-                    <button onclick="bukaModal('modalPKN')" class="btn-primary text-sm">
-                        Lihat Detail
+            <!-- LAYANAN UNGGULAN -->
+            <div class="section-box">
+                <div class="section-title">Layanan Unggulan</div>
+                
+                <div class="service-item">
+                    <span>PKN (Pelatihan Kepemimpinan Nasional)</span>
+                    <button onclick="tampilkanDetail('detailPKN')" class="btn-service">
+                        <i class="fas fa-hand-pointer mr-1"></i> Klik
                     </button>
                 </div>
+                <div id="detailPKN" class="detail-box">
+                    <strong>Tugas yang Kami Kerjakan:</strong>
+                    <ul class="list-disc pl-4 mt-1">
+                        <li>Makalah dan Laporan Pelatihan</li>
+                        <li>Materi Presentasi</li>
+                        <li>Analisis Kasus & Studi Lapangan</li>
+                        <li>Rencana Kerja & Program Kerja</li>
+                        <li>Tugas Pendukung Lainnya</li>
+                    </ul>
+                </div>
 
-                <!-- LAYANAN PKA -->
-                <div class="flex justify-between items-center bg-white/10 p-3 rounded-lg mb-3">
+                <div class="service-item">
                     <span>PKA (Pelatihan Kepemimpinan Administrator)</span>
-                    <button onclick="bukaModal('modalPKA')" class="btn-primary text-sm">
-                        Lihat Detail
+                    <button onclick="tampilkanDetail('detailPKA')" class="btn-service">
+                        <i class="fas fa-hand-pointer mr-1"></i> Klik
                     </button>
                 </div>
+                <div id="detailPKA" class="detail-box">
+                    <strong>Tugas yang Kami Kerjakan:</strong>
+                    <ul class="list-disc pl-4 mt-1">
+                        <li>Makalah dan Laporan Pelatihan</li>
+                        <li>Materi Presentasi</li>
+                        <li>Analisis Kasus & Studi Lapangan</li>
+                        <li>Rencana Kerja & Program Kerja</li>
+                        <li>Tugas Pendukung Lainnya</li>
+                    </ul>
+                </div>
 
-                <!-- LAYANAN PKP -->
-                <div class="flex justify-between items-center bg-white/10 p-3 rounded-lg mb-3">
+                <div class="service-item">
                     <span>PKP (Pelatihan Kepemimpinan Pengawas)</span>
-                    <button onclick="bukaModal('modalPKP')" class="btn-primary text-sm">
-                        Lihat Detail
+                    <button onclick="tampilkanDetail('detailPKP')" class="btn-service">
+                        <i class="fas fa-hand-pointer mr-1"></i> Klik
                     </button>
                 </div>
+                <div id="detailPKP" class="detail-box">
+                    <strong>Tugas yang Kami Kerjakan:</strong>
+                    <ul class="list-disc pl-4 mt-1">
+                        <li>Makalah dan Laporan Pelatihan</li>
+                        <li>Materi Presentasi</li>
+                        <li>Analisis Kasus & Studi Lapangan</li>
+                        <li>Rencana Kerja & Program Kerja</li>
+                        <li>Tugas Pendukung Lainnya</li>
+                    </ul>
+                </div>
 
-                <!-- LAYANAN DESAIN & CETAK -->
-                <div class="flex justify-between items-center bg-white/10 p-3 rounded-lg">
-                    <span>Desain & Cetak - Kebutuhan Materi Presentasi & Pameran</span>
-                    <button onclick="bukaModal('modalDesain')" class="btn-primary text-sm">
-                        Lihat Detail
+                <div class="service-item">
+                    <span>Desain & Cetak</span>
+                    <button onclick="tampilkanDetail('detailDesain')" class="btn-service">
+                        <i class="fas fa-hand-pointer mr-1"></i> Klik
                     </button>
                 </div>
-            </div>
-                        <!-- BAGIAN HASIL PRODUK -->
-            <div class="section-bg text-white">
-                <h3 class="text-[clamp(1.2rem,3vw,1.5rem)] font-bold text-secondary mb-4">
-                    <i class="fas fa-images mr-2"></i> Hasil Produk
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div class="bg-white/10 p-4 rounded-lg text-center">
-                        <p class="mb-3">Contoh Makalah Diklat</p>
-                        <button onclick="bukaModal('modalProduk1')" class="btn-primary text-sm">
-                            Lihat Detail
-                        </button>
-                    </div>
-                    <div class="bg-white/10 p-4 rounded-lg text-center">
-                        <p class="mb-3">Contoh Laporan Pelatihan</p>
-                        <button onclick="bukaModal('modalProduk2')" class="btn-primary text-sm">
-                            Lihat Detail
-                        </button>
-                    </div>
-                    <div class="bg-white/10 p-4 rounded-lg text-center">
-                        <p class="mb-3">Contoh Desain Materi</p>
-                        <button onclick="bukaModal('modalProduk3')" class="btn-primary text-sm">
-                            Lihat Detail
-                        </button>
-                    </div>
+                <div id="detailDesain" class="detail-box">
+                    <strong>Layanan Desain & Cetak:</strong>
+                    <ul class="list-disc pl-4 mt-1">
+                        <li>Spanduk & Banner</li>
+                        <li>Brosur & Leaflet</li>
+                        <li>Poster & X-Banner</li>
+                        <li>Materi Presentasi</li>
+                        <li>Dan Kebutuhan Cetak Lainnya</li>
+                    </ul>
                 </div>
             </div>
 
-            <!-- BAGIAN HUBUNGI KAMI -->
-            <div class="section-bg text-white">
-                <h3 class="text-[clamp(1.2rem,3vw,1.5rem)] font-bold text-secondary mb-4">
-                    <i class="fas fa-phone mr-2"></i> Hubungi Kami
-                </h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div>
-                        <p class="mb-2"><strong>Nomor WhatsApp:</strong></p>
-                        <p class="mb-1"><i class="fab fa-whatsapp mr-2"></i> 0821 8766 2626</p>
-                        <p class="mb-4"><i class="fab fa-whatsapp mr-2"></i> 0859 7515 3455</p>
-                        
-                        <p class="mb-2"><strong>Alamat:</strong></p>
-                        <p class="mb-4">Makassar, Sulawesi Selatan</p>
-                        
-                        <p class="mb-2"><strong>Jam Operasional:</strong></p>
-                        <p class="mb-1">Senin - Jumat: 08.00 - 17.00 WITA</p>
-                        <p class="mb-1">Sabtu: 08.00 - 12.00 WITA</p>
-                        <p>Minggu & Hari Libur: Tutup</p>
-                    </div>
-                    <div>
-                        <p class="mb-3"><strong>Kirim Pesan:</strong></p>
-                        <input type="text" placeholder="Nama Lengkap" class="w-full p-2 mb-2 rounded-lg text-primary">
-                        <input type="text" placeholder="Nomor WhatsApp" class="w-full p-2 mb-2 rounded-lg text-primary">
-                        <textarea placeholder="Isi Pesan" rows="4" class="w-full p-2 mb-3 rounded-lg text-primary"></textarea>
-                        <button class="btn-primary w-full">
-                            <i class="fas fa-paper-plane mr-2"></i> Kirim Pesan
-                        </button>
-                    </div>
-                </div>
+            <!-- HASIL PRODUK -->
+            <div class="section-box">
+                <div class="section-title">Hasil Produk</div>
+                <div class="product-grid">
+                    <button onclick="tampilkanDetail('produk1')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
+                    <button onclick="tampilkanDetail('produk2')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
+                    <button onclick="tampilkanDetail('produk3')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
+                    <button onclick="tampilkanDetail('produk4')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
+                    <button onclick="tampilkanDetail('produk5')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
+                    <button onclick="tampilkanDetail('produk6')" class="product-btn">
+                        <i class="fas fa-eye mr-1"></i> Lihat Detail
+                    </button>
             </div>
+                            </div>
 
-            <p class="text-center text-white mt-8 pb-8">
-                &copy; 2026 AW Solutions - All Rights Reserved
-            </p>
+            <!-- HUBUNGI KAMI -->
+            <div class="section-box">
+                <div class="section-title">Hubungi Kami</div>
+                <p class="text-sm mb-2"><strong>Kontak:</strong> 0821 8766 2626 | 0859 7515 3455</p>
+                <p class="text-sm mb-2"><strong>Alamat:</strong> Makassar, Sulawesi Selatan</p>
+                <p class="text-sm mb-3"><strong>Jam Operasional:</strong> Senin-Jumat 08.00-17.00 WITA | Sabtu 08.00-12.00 WITA</p>
+
+                <div class="form-group">
+                    <input type="text" placeholder="Nama Lengkap" class="form-input">
+                </div>
+                <div class="form-group">
+                    <input type="tel" placeholder="Nomor HP/WhatsApp" class="form-input">
+                </div>
+                <div class="form-group">
+                    <textarea placeholder="Pesanan / Keterangan" rows="2" class="form-input"></textarea>
+                </div>
+                <button class="btn-submit">
+                    <i class="fas fa-paper-plane mr-1"></i> Kirim Pesan
+                </button>
+            </div>
         </div>
     </div>
 
-    <!-- ============================================== -->
-    <!-- MODAL / POP UP DETAIL LAYANAN -->
-    <!-- ============================================== -->
-    <!-- MODAL PKN -->
-    <div id="modalPKN" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalPKN')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Detail Layanan PKN</h4>
-            <p class="mb-2">Layanan penyusunan tugas untuk Pelatihan Kepemimpinan Nasional (PKN) Tingkat II dan Tingkat I, meliputi:</p>
-            <ul class="list-disc pl-5 mb-4">
-                <li>Penyusunan makalah dan laporan pelatihan</li>
-                <li>Pembuatan materi presentasi</li>
-                <li>Analisis kasus dan studi lapangan</li>
-                <li>Penyusunan rencana kerja dan program</li>
-                <li>Tugas-tugas lain yang dibutuhkan dalam pelatihan</li>
-            </ul>
-            <p class="font-bold text-center">Dikerjakan dengan standar kualitas tinggi dan tepat waktu</p>
-        </div>
-    </div>
-
-    <!-- MODAL PKA -->
-    <div id="modalPKA" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalPKA')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Detail Layanan PKA</h4>
-            <p class="mb-2">Layanan penyusunan tugas untuk Pelatihan Kepemimpinan Administrator (PKA), meliputi:</p>
-            <ul class="list-disc pl-5 mb-4">
-                <li>Penyusunan makalah dan laporan pelatihan</li>
-                <li>Pembuatan materi presentasi</li>
-                <li>Analisis kasus dan studi lapangan</li>
-                <li>Penyusunan rencana kerja dan program</li>
-                <li>Tugas-tugas lain yang dibutuhkan dalam pelatihan</li>
-            </ul>
-            <p class="font-bold text-center">Dikerjakan dengan standar kualitas tinggi dan tepat waktu</p>
-        </div>
-    </div>
-        <!-- MODAL PKP -->
-    <div id="modalPKP" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalPKP')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Detail Layanan PKP</h4>
-            <p class="mb-2">Layanan penyusunan tugas untuk Pelatihan Kepemimpinan Pengawas (PKP), meliputi:</p>
-            <ul class="list-disc pl-5 mb-4">
-                <li>Penyusunan makalah dan laporan pelatihan</li>
-                <li>Pembuatan materi presentasi</li>
-                <li>Analisis kasus dan studi lapangan</li>
-                <li>Penyusunan rencana kerja dan program</li>
-                <li>Tugas-tugas lain yang dibutuhkan dalam pelatihan</li>
-            </ul>
-            <p class="font-bold text-center">Dikerjakan dengan standar kualitas tinggi dan tepat waktu</p>
-        </div>
-    </div>
-
-    <!-- MODAL DESAIN & CETAK -->
-    <div id="modalDesain" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalDesain')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Detail Layanan Desain & Cetak</h4>
-            <p class="mb-2">Layanan desain dan cetak untuk keperluan materi presentasi dan pameran, meliputi:</p>
-            <ul class="list-disc pl-5 mb-4">
-                <li>Desain dan cetak spanduk & banner</li>
-                <li>Desain dan cetak brosur & leaflet</li>
-                <li>Desain dan cetak poster & X-banner</li>
-                <li>Desain dan cetak kartu nama & undangan</li>
-                <li>Desain dan penyusunan materi presentasi (PPT, Buku Panduan)</li>
-                <li>Dan kebutuhan desain cetak lainnya</li>
-            </ul>
-            <p class="font-bold text-center">Hasil cetakan berkualitas, rapi, dan sesuai kebutuhan</p>
-        </div>
-    </div>
-
-    <!-- MODAL HASIL PRODUK 1 -->
-    <div id="modalProduk1" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalProduk1')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Contoh Makalah Diklat</h4>
-            <p class="mb-3">Makalah yang kami susun disesuaikan dengan ketentuan dan standar yang berlaku dalam pelatihan kepemimpinan. Isinya disusun secara sistematis, jelas, dan mudah dipahami.</p>
-            <p class="font-bold text-center">Kualitas terjamin dan tepat waktu</p>
-        </div>
-    </div>
-
-    <!-- MODAL HASIL PRODUK 2 -->
-    <div id="modalProduk2" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalProduk2')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Contoh Laporan Pelatihan</h4>
-            <p class="mb-3">Laporan pelatihan yang kami buat memuat semua hasil kegiatan, analisis, dan kesimpulan pelatihan. Disusun dengan struktur yang rapi dan sesuai dengan format yang diharapkan.</p>
-            <p class="font-bold text-center">Sesuai standar pelatihan yang berlaku</p>
-        </div>
-    </div>
-
-    <!-- MODAL HASIL PRODUK 3 -->
-    <div id="modalProduk3" class="modal">
-        <div class="modal-content">
-            <span class="close-btn" onclick="tutupModal('modalProduk3')">&times;</span>
-            <h4 class="text-xl font-bold text-primary mb-4 text-center">Contoh Desain Materi</h4>
-            <p class="mb-3">Desain materi yang kami kerjakan menarik, profesional, dan mudah dibaca. Disesuaikan dengan kebutuhan presentasi maupun pameran, dengan pemilihan warna dan tata letak yang tepat.</p>
-            <p class="font-bold text-center">Desain menarik dan berkualitas</p>
-        </div>
-    </div>
-
-    <!-- ============================================== -->
-    JavaScript untuk fungsi halaman dan pop-up
-    <!-- ============================================== -->
     <script>
-        // Fungsi untuk membuka halaman utama saat klik "Mulai Sekarang"
+        // Fungsi buka halaman utama
         function bukaHalamanUtama() {
-            document.getElementById('beranda').style.display = 'none';
-            document.getElementById('halamanUtama').style.display = 'block';
-            window.scrollTo(0, 0);
+            document.getElementById('berandaPage').style.display = 'none';
+            document.getElementById('utamaPage').style.display = 'flex';
         }
 
-        // Fungsi untuk kembali ke halaman beranda
+        // Fungsi kembali ke halaman beranda
         function kembaliKeBeranda() {
-            document.getElementById('halamanUtama').style.display = 'none';
-            document.getElementById('beranda').style.display = 'flex';
-            window.scrollTo(0, 0);
+            document.getElementById('utamaPage').style.display = 'none';
+            document.getElementById('berandaPage').style.display = 'flex';
         }
 
-        // Fungsi untuk membuka pop-up/modal
-        function bukaModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
-        }
-
-        // Fungsi untuk menutup pop-up/modal
-        function tutupModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
-
-        // Menutup modal jika klik di luar area modal
-        window.onclick = function(event) {
-            const modals = document.getElementsByClassName('modal');
-            for (let i = 0; i < modals.length; i++) {
-                if (event.target == modals[i]) {
-                    modals[i].style.display = 'none';
+        // Fungsi tampilkan/sembunyikan detail
+        function tampilkanDetail(id) {
+            const detailBox = document.getElementById(id);
+            // Tutup semua detail lain terlebih dahulu
+            const semuaDetail = document.querySelectorAll('.detail-box');
+            semuaDetail.forEach(box => {
+                if (box.id !== id) {
+                    box.style.display = 'none';
                 }
+            });
+            // Tampilkan atau sembunyikan detail yang diklik
+            if (detailBox.style.display === 'block') {
+                detailBox.style.display = 'none';
+            } else {
+                detailBox.style.display = 'block';
             }
         }
     </script>
 
 </body>
 </html>
+
+                
+    
