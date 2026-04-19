@@ -840,6 +840,7 @@
         <div id="kontenModal" class="modal-content"></div>
     </div
 
+
     <!-- ============================================== -->
     <!-- JAVASCRIPT / FUNGSI -->
     <!-- ============================================== -->
@@ -850,7 +851,7 @@
             sidebar.classList.toggle('active');
         }
 
-        // FUNGSI PINDAH HALAMAN - SUDAH DIPERBAIKI AGAR MENU TETAP DI ATAS
+        // FUNGSI PINDAH HALAMAN - MENU TETAP DI ATAS
         function showPage(pageId) {
             // Sembunyikan semua halaman
             const pages = document.querySelectorAll('.page-content');
@@ -860,9 +861,6 @@
             
             // Tampilkan halaman yang dipilih
             document.getElementById(pageId).classList.add('active');
-            
-            // HAPUS BAGIAN YANG MENYEBABKAN HALAMAN NAIK
-            // Tidak ada lagi perubahan posisi atau scroll ke atas
             
             // Update status menu yang aktif
             const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
@@ -920,15 +918,17 @@
         }
     </script>
 
-    <!-- STYLE UNTUK MEMASTIKAN MENU DAN LOGO TETAP DI ATAS -->
+    <!-- ============================================== -->
+    <!-- STYLE TAMPILAN - SUDAH DIPERBAIKI UKURANNYA -->
+    <!-- ============================================== -->
     <style>
-        /* Navbar (tempat logo dan menu) DIPERBAIKI AGAR TETAP DI ATAS */
+        /* Navbar (Logo dan Menu) Tetap di Atas */
         .navbar {
-            position: fixed !important; /* Tetap menempel di atas */
+            position: fixed !important;
             top: 0 !important;
             left: 0 !important;
             width: 100% !important;
-            z-index: 9999 !important; /* Paling atas, tidak tertutup halaman lain */
+            z-index: 9999 !important;
             background-color: #002B5B !important;
             padding: 12px 20px !important;
             height: 65px !important;
@@ -939,11 +939,11 @@
             box-sizing: border-box !important;
         }
 
-        /* Beri jarak atas ke konten halaman agar tidak tertutup navbar */
+        /* Jarak konten halaman agar tidak tertutup navbar */
         .page-content {
             display: none;
             animation: fadeIn 0.5s;
-            margin-top: 65px !important; /* Sama dengan tinggi navbar */
+            margin-top: 65px !important;
             min-height: calc(100vh - 65px) !important;
             padding: 0 !important;
         }
@@ -1010,7 +1010,9 @@
             padding-left: 30px;
         }
 
-        /* STYLE BERANDA */
+        /* ============================================== */
+        /* ✅ STYLE BERANDA - UKURAN SUDAH DIPASINGKAN */
+        /* ============================================== */
         .hero-section {
             background-image: url('Latar Mengetik 01.jpg');
             background-size: cover;
@@ -1041,24 +1043,26 @@
             text-align: center;
             width: 100%;
             max-width: 600px;
-            margin: 0 auto;
-            padding-top: 20px;
+            margin: -10px auto 0 auto;
+            padding-top: 10px;
         }
 
+        /* JUDUL UTAMA - TETAP PALING BESAR TAPI TIDAK TERLALU BESAR */
         .judul-utama {
             color: #000000;
-            font-size: clamp(2.3rem, 7vw, 3.6rem);
+            font-size: clamp(1.9rem, 6vw, 2.8rem); /* Ukuran sudah dikurangi, pas dan proporsional */
             font-weight: 900;
-            margin-bottom: 35px;
+            margin-bottom: 30px;
             text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.9), 
                          1px 1px 3px rgba(255, 255, 255, 0.7);
         }
 
+        /* TULISAN PKN/PKA/PKP - LEBIH KECIL DARI JUDUL */
         .item-layanan {
             color: #ffffff;
-            font-size: clamp(1.6rem, 4.5vw, 2rem);
-            line-height: 1.8;
-            margin-bottom: 18px;
+            font-size: clamp(1.2rem, 3.5vw, 1.5rem); /* Tetap lebih kecil dari judul */
+            line-height: 1.7;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
             justify-content: flex-start;
@@ -1081,8 +1085,8 @@
 
         .deskripsi {
             color: #ffffff;
-            font-size: clamp(0.8rem, 2vw, 1rem);
-            margin: 75px auto 20px auto;
+            font-size: clamp(0.9rem, 2.2vw, 1.1rem);
+            margin: 60px auto 20px auto;
             line-height: 1.6;
             max-width: 550px;
             text-align: center;
@@ -1106,7 +1110,7 @@
         .copyright {
             color: #ffffff;
             font-size: 0.95rem;
-            margin-top: 60px;
+            margin-top: 50px;
             opacity: 0.95;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
@@ -1116,6 +1120,21 @@
 </html>
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+        
+            
 
 
 
