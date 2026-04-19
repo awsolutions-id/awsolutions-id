@@ -838,12 +838,18 @@
     <div id="myModal" class="modal">
         <span class="close" onclick="tutupFile()">&times;</span>
         <div id="kontenModal" class="modal-content"></div>
-    </div>
+    </div
 
     <!-- ============================================== -->
     <!-- JAVASCRIPT / FUNGSI -->
     <!-- ============================================== -->
     <script>
+        // FUNGSI BUKA/TUTUP MENU GARIS 3
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebarMenu');
+            sidebar.classList.toggle('active');
+        }
+
         // FUNGSI PINDAH HALAMAN
         function showPage(pageId) {
             // Sembunyikan semua halaman
@@ -855,12 +861,26 @@
             // Tampilkan halaman yang dipilih
             document.getElementById(pageId).classList.add('active');
             
-            // Update menu aktif
+            // Update menu aktif di menu utama
             const links = document.querySelectorAll('.navbar a');
             links.forEach(link => {
                 link.classList.remove('active');
             });
-            event.target.classList.add('active');
+            if (event && event.target) {
+                event.target.classList.add('active');
+            }
+            
+            // Update menu aktif di menu samping
+            const sidebarLinks = document.querySelectorAll('.sidebar-menu a');
+            sidebarLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+            if (event && event.currentTarget) {
+                event.currentTarget.classList.add('active');
+            }
+            
+            // Tutup menu samping setelah memilih halaman
+            toggleMenu();
         }
 
         // FUNGSI MODAL STANDAR
@@ -890,16 +910,89 @@
             document.getElementById("kontenModal").innerHTML = '';
         }
 
-        // KLIK LUAR UNTUK TUTUP
+        // KLIK LUAR UNTUK TUTUP MODAL DAN MENU
         window.onclick = function(event) {
+            // Tutup modal jika klik di luar area modal
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
+            }
+            
+            // Tutup menu samping jika klik di luar area menu
+            const sidebar = document.getElementById('sidebarMenu');
+            const menuToggle = document.querySelector('.menu-toggle');
+            if (sidebar && !sidebar.contains(event.target) && menuToggle && !menuToggle.contains(event.target)) {
+                sidebar.classList.remove('active');
             }
         }
     </script>
 
-    <!-- STYLE TAMBAHAN UNTUK BERANDA -->
+    <!-- STYLE TAMBAHAN UNTUK MENU SAMPING DAN BERANDA -->
     <style>
+        /* STYLE UNTUK MENU GARIS 3 */
+        .navbar {
+            position: relative;
+        }
+        .menu-toggle {
+            color: #FFD700;
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: 0.3s;
+            pointer-events: auto;
+            z-index: 1000;
+            position: absolute;
+            right: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        .menu-toggle:hover {
+            color: white;
+        }
+        .sidebar-menu {
+            position: fixed;
+            top: 65px;
+            right: -180px;
+            width: 180px;
+            height: auto;
+            max-height: 320px;
+            background-color: #002B5B;
+            z-index: 999;
+            transition: right 0.3s ease;
+            padding: 15px 0;
+            box-shadow: -2px 0 10px rgba(0,0,0,0.2);
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+        }
+        .sidebar-menu.active {
+            right: 0;
+        }
+        .close-menu {
+            position: absolute;
+            top: 5px;
+            right: 10px;
+            color: #FFD700;
+            font-size: 1.4rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .close-menu:hover {
+            color: white;
+        }
+        .sidebar-menu a {
+            display: block;
+            color: #FFD700;
+            text-decoration: none;
+            padding: 12px 20px;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+            transition: 0.3s;
+        }
+        .sidebar-menu a:hover, .sidebar-menu a.active {
+            background-color: #1a3b7a;
+            color: white;
+            padding-left: 30px;
+        }
+
+        /* STYLE BERANDA */
         .hero-section {
             background-image: url('Latar Mengetik 01.jpg');
             background-size: cover;
@@ -990,3 +1083,4 @@
 
 </body>
 </html>
+
