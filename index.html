@@ -124,17 +124,20 @@
                 font-size: 0.875rem;
                 opacity: 0.8;
             }
+            /* Revisi: Ubah tinggi menu dan tambahkan garis bawah kuning */
             .sidebar-menu {
                 position: fixed;
                 top: 0;
                 right: 0;
-                height: 100vh;
+                height: auto;
                 width: 250px;
                 background-color: #0a2463;
                 z-index: 1001;
                 transform: translateX(100%);
                 transition: transform 0.3s ease-in-out;
-                padding-top: 60px;
+                padding: 0;
+                margin-top: 60px;
+                border-bottom: 3px solid #f3d278;
             }
             .sidebar-menu.active {
                 transform: translateX(0);
@@ -169,6 +172,12 @@
             }
             .overlay.active {
                 display: block;
+            }
+            /* Tambahan style untuk posisi teks klik di kanan */
+            .posisi-kanan {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
             }
         }
     </style>
@@ -205,6 +214,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 3px solid var(--warna-emas);
         }
 
         .logo-header {
@@ -440,7 +450,8 @@
     <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
     <div class="sidebar-menu" id="sidebarMenu">
         <a href="#beranda" class="nav-link active" data-target="beranda" onclick="gantiHalaman('beranda'); toggleMenu()">Beranda</a>
-        <a href="#profil" class="nav-link" data-target="profil" onclick="gantiHalaman('profil'); toggleMenu()">Profil</a>
+        <a href="#profil" class="
+nav-link" data-target="profil" onclick="gantiHalaman('profil'); toggleMenu()">Profil</a>
         <a href="#layanan" class="nav-link" data-target="layanan" onclick="gantiHalaman('layanan'); toggleMenu()">Layanan</a>
         <a href="#portofolio" class="nav-link" data-target="portofolio" onclick="gantiHalaman('portofolio'); toggleMenu()">Portofolio</a>
         <a href="#kontak" class="nav-link" data-target="kontak" onclick="gantiHalaman('kontak'); toggleMenu()">Kontak</a>
@@ -456,8 +467,7 @@
                     PKN Pelatihan Kepemimpinan Nasional, TK. II dan TK. I
                 </div>
                 <div class="item-layanan">
-                    <i class="fas fa-plus
--square" style="color: var(--warna-emas); margin-right: 8px;"></i>
+                    <i class="fas fa-plus-square" style="color: var(--warna-emas); margin-right: 8px;"></i>
                     PKA Pelatihan Kepemimpinan Administrator
                 </div>
                 <div class="item-layanan">
@@ -501,7 +511,7 @@
                         <li><strong>PKP</strong> - Pelatihan Kepemimpinan Pengawas</li>
                         <li><strong class="text-gold">Desain & Cetak</strong> - Kebutuhan materi presentasi</li>
                     </ul>
-                    <span class="click-icon-top text-gold"><i class="fa fa-hand-pointer-o mr-1"></i></span>
+                    <!-- Ikon tangan dihapus sesuai permintaan -->
                 </div>
                 <div class="box-gold-3d text-primary p-3 relative mb-4">
                     <div class="flex items-center gap-2 mb-1">
@@ -512,16 +522,19 @@
                     <p class="text-sm leading-relaxed mb-1">Menjadi penyedia jasa terpercaya, berkualitas & tepat waktu.</p>
                     <p class="text-sm leading-relaxed font-semibold">Misi:</p>
                     <p class="text-sm leading-relaxed">Solusi lengkap, standar tinggi, layanan profesional.</p>
-                    <span class="click-icon-top text-primary/60"><i class="fa fa-hand-pointer-o mr-1"></i></span>
+                    <!-- Ikon tangan dihapus sesuai permintaan -->
                 </div>
                 <button class="btn-click-bottom w-full bg-primary text-white p-3 rounded-lg shadow-lg cursor-pointer transition duration-300 hover:scale-[1.01] relative" onclick="openModal('profilModal')">
-                    <div class="flex items-center gap-3">
-                        <i class="fa fa-file-text-o text-gold text-xl"></i>
-                        <span class="text-sm font-medium">Desain dan Kualitas Terjamin</span>
-                    </div>
-                    <div class="flex items-center gap-2 text-gold mt-1">
-                        <i class="fa fa-hand-pointer-o"></i>
-                        <span class="text-sm font-bold">Klik</span>
+                    <div class="posisi-kanan">
+                        <div class="flex items-center gap-3">
+                            <i class="fa fa-file-text-o text-gold text-xl"></i>
+                            <span class="text-sm font-medium">Desain dan Kualitas Terjamin</span>
+                        </div>
+                        <!-- Ikon dan teks Klik dipindah ke ujung kanan -->
+                        <div class="flex items-center gap-2 text-gold">
+                            <i class="fa fa-hand-pointer-o"></i>
+                            <span class="text-sm font-bold">Klik</span>
+                        </div>
                     </div>
                 </button>
             </div>
@@ -618,8 +631,7 @@
             </div>
         </div>
     </div>
-
-    <!-- MODAL LAYANAN -->
+        <!-- MODAL LAYANAN -->
     <div id="pknModal" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('pknModal')">&times;</span>
@@ -661,8 +673,7 @@
             <ul class="check-list text-gray-700">
                 <li>Essay Agenda I, Agenda II, Agenda III</li>
                 <li>Tugas Individu Agenda I, Agenda II, Agenda III</li>
-                <li
-Tugas Individu Studi Lapangan (Stula)</li>
+                <li>Tugas Individu Studi Lapangan (Stula)</li>
                 <li>Rancangan Aksi Perubahan</li>
                 <li>Laporan Implementasi Aksi Perubahan</li>
                 <li>Desain Infografis dan Majalah Aksi Perubahan</li>
@@ -923,3 +934,6 @@ Tugas Individu Studi Lapangan (Stula)</li>
     </script>
 </body>
 </html>
+
+    
+                                                                         
