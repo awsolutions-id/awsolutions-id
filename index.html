@@ -3,92 +3,170 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio</title>
+    <title>Portofolio Furniture</title>
     <style>
+        /* Mengatur agar layout responsif dan berpusat */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background-color: #f7f7f7;
             display: flex;
             justify-content: center;
             align-items: center;
             min-height: 100vh;
             margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
         }
-        .container {
-            background-color: white;
-            padding: 40px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-            width: 80%;
-            max-width: 1200px;
-        }
-        .header {
-            text-align: center;
-            font-size: 48px;
-            font-weight: bold;
-            color: #002244;
-            margin-bottom: 30px;
-        }
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px;
-        }
-        .item {
-            background-color: #f7f7f7;
-            border: 1px solid #ddd;
-            padding: 10px;
-            text-align: center;
-        }
-        .item img {
+
+        /* Container utama dengan warna latar belakang putih */
+        .portfolio-container {
+            background-color: #fff;
             width: 100%;
-            height: auto;
-            border: 1px solid #ccc;
-        }
-        .item .details {
+            max-width: 1200px; /* Batas lebar agar tidak terlalu lebar di layar besar */
+            padding: 60px;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             display: flex;
+            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            margin-top: 10px;
-            background-color: #f2e185;
-            padding: 5px;
-            border-radius: 5px;
         }
-        .item .details span {
-            margin-left: 5px;
+
+        /* Judul Portofolio dengan font biru gelap */
+        .portfolio-header {
+            font-size: 56px;
+            font-weight: 800;
+            color: #0d2c4b; /* Biru gelap seragam */
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -1.5px;
+        }
+
+        /* Grid untuk 4 kolom kartu */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 kolom sama lebar */
+            gap: 25px; /* Jarak antar kartu */
+            width: 100%;
+        }
+
+        /* Kartu individu */
+        .portfolio-item {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            transition: box-shadow 0.2s ease-in-out;
+        }
+
+        /* Container gambar */
+        .image-container {
+            width: 100%;
+            padding-top: 100%; /* Membuat kotak aspek rasio 1:1 */
+            position: relative;
+            background-color: #f0f0f0; /* Placeholder jika gambar hilang */
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        /* Gambar di dalam container */
+        .image-container img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: contain; /* Menampilkan seluruh gambar tanpa terpotong, dengan padding */
+            object-position: center;
+        }
+
+        /* Container untuk tombol detail */
+        .details-bar {
+            background-color: #f7e07d; /* Warna kuning seragam */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px 0;
+            text-decoration: none;
             color: black;
-            font-weight: bold;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            width: 100%;
+            border: none;
+        }
+
+        /* Simbol mata */
+        .icon-eye {
+            font-size: 18px;
+            margin-right: 8px;
+        }
+
+        /* Penyesuaian responsif untuk layar kecil (ponsel) */
+        @media (max-width: 900px) {
+            .portfolio-grid {
+                grid-template-columns: repeat(2, 1fr); /* 2 kolom di layar sedang */
+            }
+            .portfolio-header {
+                font-size: 40px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .portfolio-grid {
+                grid-template-columns: 1fr; /* 1 kolom di ponsel */
+            }
+            .portfolio-container {
+                padding: 30px;
+            }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">Portofolio</div>
-        <div class="grid">
-            <div class="item">
-                <img src="path_ke_gambar1.jpg" alt="Furniture 1">
-                <div class="details">
-                    <span>Lihat Detail</span>
+
+    <div class="portfolio-container">
+        <div class="portfolio-header">Portofolio</div>
+        
+        <div class="portfolio-grid">
+            
+            <div class="portfolio-item">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300/f8d7da/000000?text=Ikon1" alt="Furniture 1">
                 </div>
+                <button class="details-bar">
+                    <span class="icon-eye">👁</span> Lihat Detail
+                </button>
             </div>
-            <div class="item">
-                <img src="path_ke_gambar2.jpg" alt="Furniture 2">
-                <div class="details">
-                    <span>Lihat Detail</span>
+
+            <div class="portfolio-item">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300/d4edda/000000?text=Ikon2" alt="Furniture 2">
                 </div>
+                <button class="details-bar">
+                    <span class="icon-eye">👁</span> Lihat Detail
+                </button>
             </div>
-            <div class="item">
-                <img src="path_ke_gambar3.jpg" alt="Furniture 3">
-                <div class="details">
-                    <span>Lihat Detail</span>
+
+            <div class="portfolio-item">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300/cce5ff/000000?text=Ikon3" alt="Furniture 3">
                 </div>
+                <button class="details-bar">
+                    <span class="icon-eye">👁</span> Lihat Detail
+                </button>
             </div>
-            <div class="item">
-                <img src="path_ke_gambar4.jpg" alt="Furniture 4">
-                <div class="details">
-                    <span>Lihat Detail</span>
+
+            <div class="portfolio-item">
+                <div class="image-container">
+                    <img src="https://via.placeholder.com/300/fff3cd/000000?text=Ikon4" alt="Furniture 4">
                 </div>
+                <button class="details-bar">
+                    <span class="icon-eye">👁</span> Lihat Detail
+                </button>
             </div>
+
             </div>
     </div>
+
 </body>
 </html>
