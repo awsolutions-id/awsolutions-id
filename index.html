@@ -989,10 +989,16 @@ Solusi Pengetikan, Desain dan Cetak Dokumen untuk Kebutuhan Tugas Diklat Anda
             </div>
         </div>
     </div>
-
-    <!-- JAVASCRIPT -->
+    
+        <!-- JAVASCRIPT -->
     <script>
-        // Fungsi Menu
+        function toggleMenu() {
+            const sidebar = document.getElementById('sidebarMenu');
+            const overlay = document.getElementById('overlay');
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
         function gantiHalaman(id) {
             var pages = document.querySelectorAll('.page-content');
             var links = document.querySelectorAll('.sidebar-menu a');
@@ -1004,7 +1010,6 @@ Solusi Pengetikan, Desain dan Cetak Dokumen untuk Kebutuhan Tugas Diklat Anda
             event.target.classList.add('active');
         }
 
-        // Fungsi Modal
         function openModal(modalId) {
             document.getElementById(modalId).style.display = "block";
             document.body.style.overflow = "hidden";
@@ -1015,7 +1020,6 @@ Solusi Pengetikan, Desain dan Cetak Dokumen untuk Kebutuhan Tugas Diklat Anda
             document.body.style.overflow = "auto";
         }
 
-        // Close when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('modal')) {
                 event.target.style.display = "none";
@@ -1023,7 +1027,6 @@ Solusi Pengetikan, Desain dan Cetak Dokumen untuk Kebutuhan Tugas Diklat Anda
             }
         }
 
-        // Fungsi Buka File
         function bukaFile(file, type, caption) {
             let content = '';
             if(type === 'gambar') {
@@ -1057,5 +1060,7 @@ Solusi Pengetikan, Desain dan Cetak Dokumen untuk Kebutuhan Tugas Diklat Anda
 </body>
 </html>
 
+
     
-                        
+        
+            
