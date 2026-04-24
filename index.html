@@ -641,76 +641,100 @@
     </div>
     </div>
     
-    <!-- JAVASCRIPT -->
-    <script>
-        function toggleMenu() {
-            const sidebar = document.getElementById('sidebarMenu');
-            const overlay = document.getElementById('overlay');
-            sidebar.classList.toggle('active');
-            overlay.classList.toggle('active');
+    <!-- JAVASCRIPT FIX -->
+<script>
+    function toggleMenu() {
+        const sidebar = document.getElementById('sidebarMenu');
+        const overlay = document.getElementById('overlay');
+        sidebar.classList.toggle('active');
+        overlay.classList.toggle('active');
+    }
+
+    function gantiHalaman(targetId) {
+        document.querySelectorAll('.page-content').forEach(page => {
+            page.classList.remove('active');
+        });
+
+        const target = document.getElementById(targetId);
+        if (target) {
+            target.classList.add('active');
         }
 
-        function gantiHalaman(targetId) {
-            document.querySelectorAll('.page-content').forEach(page => {
-                page.classList.remove('active');
-            });
-            document.getElementById(targetId).classList.add('active');
-            document.querySelectorAll('.nav-link').forEach(link => {
-                link.classList.remove('active');
-            });
-            document.querySelector(`.nav-link[data-target="${targetId}"]`).classList.add('active');
-            window.scrollTo(0, 0);
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+        });
+
+        const activeLink = document.querySelector(`.nav-link[data-target="${targetId}"]`);
+        if (activeLink) {
+            activeLink.classList.add('active');
         }
 
-        function openModal(modalId) {
-            document.getElementById(modalId).style.display = 'block';
+        window.scrollTo(0, 0);
+    }
+
+    function openModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'block';
+    }
+
+    function closeModal(modalId) {
+        const modal = document.getElementById(modalId);
+        if (modal) modal.style.display = 'none';
+    }
+
+    function bukaFile(namaFile, tipe, keterangan) {
+        const modal = document.getElementById('modalPorto');
+        const gambar = document.getElementById('gambarPorto');
+        const video = document.getElementById('videoPorto');
+        const sumberVideo = document.getElementById('sumberVideo');
+        const keteranganElem = document.getElementById('keteranganPorto');
+
+        if (!modal) return;
+
+        gambar.style.display = 'none';
+        video.style.display = 'none';
+        gambar.src = '';
+        sumberVideo.src = '';
+
+        if (tipe === 'gambar') {
+            gambar.src = namaFile;
+            gambar.style.display = 'block';
+        } else if (tipe === 'video') {
+            sumberVideo.src = namaFile;
+            video.load();
+            video.style.display = 'block';
         }
 
-        function closeModal(modalId) {
-            document.getElementById(modalId).style.display = 'none';
-        }
+        keteranganElem.textContent = keterangan;
+        modal.style.display = 'block';
+    }
 
-        function bukaFile(namaFile, tipe, keterangan) {
-            const modal = document.getElementById('modalPorto');
-            const gambar = document.getElementById('gambarPorto');
-            const video = document.getElementById('videoPorto');
-            const sumberVideo = document.getElementById('sumberVideo');
-            const keteranganElem = document.getElementById('keteranganPorto');
+    function tutupFile() {
+        const modal = document.getElementById('modalPorto');
+        const video = document.getElementById('videoPorto');
 
-            gambar.style.display = 'none';
-            video.style.display = 'none';
-            gambar.src = '';
-            sumberVideo.src = '';
+        if (modal) modal.style.display = 'none';
 
-            if(tipe === 'gambar') {
-                gambar.src = namaFile;
-                gambar.style.display = 'block';
-            } else if(tipe === 'video') {
-                sumberVideo.src = namaFile;
-                video.load();
-                video.style.display = 'block';
-            }
-
-            keteranganElem.textContent = keterangan;
-            modal.style.display = 'block';
-        }
-
-        function tutupFile() {
-            const modal = document.getElementById('modalPorto');
-            const video = document.getElementById('videoPorto');
-            modal.style.display = 'none';
+        if (video) {
             video.pause();
             video.currentTime = 0;
         }
+    }
 
-        window.onclick = function(event) {
-            if(event.target.classList.contains('modal')) {
-                event.target.style.display = 'none';
-            }
-            if(event.target.classList.contains('modal-porto')) {
-                tutupFile();
-            }
+    window.onclick = function(event) {
+        if (event.target.classList.contains('modal')) {
+            event.target.style.display = 'none';
         }
-    </script>
+        if (event.target.classList.contains('modal-porto')) {
+            tutupFile();
+        }
+    }
+
+    // ✅ FIX UTAMA
+    window.onload = function() {
+        gantiHalaman('beranda');
+    }
+</script>
+
 </body>
 </html>
